@@ -462,3 +462,30 @@ svg { display: block; }
 .no-rm { font-family: var(--f-display) !important; font-style: italic; }
 .section-h.no-rm { font-size: 26px; font-style: normal; font-weight: 700; }
 .tagline.no-rm { font-size: 20px; }
+
+/* ---- Küçük ekran uyumu: hızlı erişim butonları ---- */
+.quick { padding: 10px 2px 9px; }
+.quick-btn { min-width: 0; gap: 6px; }
+.qi { width: clamp(36px, 10.5vw, 44px); height: clamp(36px, 10.5vw, 44px); }
+.qi svg { width: 52%; height: 52%; }
+.qi.wf svg { width: 50%; height: 50%; }
+.qi.go svg { width: 46%; height: 46%; margin-top: -18%; }
+.q-stars { bottom: 16%; }
+.q-stars svg { width: 5.5px; height: 5.5px; }
+.ql { font-size: clamp(9.5px, 2.8vw, 11px); max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---- Kısa ekranlar (iPhone SE, küçük Android) ---- */
+@media (max-height: 740px) {
+  .brand-name { font-size: clamp(52px, 16vw, 72px); }
+  .brand-leaf { width: 52px; margin-bottom: 2px; }
+  .tagline { margin-top: 10px; font-size: 24px; }
+  .tagline.no-rm { font-size: 18px; }
+  .splash-bottom { gap: 10px; padding-bottom: calc(12px + var(--safe-b)); }
+  .cta { height: 52px; font-size: 16px; }
+  .cta-arrow { width: 30px; height: 30px; }
+}
+@media (max-height: 600px) {
+  .brand-leaf, .tagline { display: none; }
+  .brand-name { font-size: 48px; }
+  .qi { width: 34px; height: 34px; }
+}
