@@ -380,18 +380,31 @@
     if (state.screen === "category") { renderChips(); renderCategory(); applySearch("category"); requestAnimationFrame(() => centerChip(false)); }
   }
 
+  // iOS Safari: CSS transform geçişleri GSAP ile çakışıp öğeleri ara durumda bırakabiliyor.
+  // Bu yüzden intro sırasında geçişler kapatılır, bitince tüm satır içi stiller temizlenir.
+  const INTRO_TARGETS = ".brand-leaf, .brand-name, .brand-sub, .tagline, .cta, .quick, .quick .qi, .splash-top > *, .vat";
+  let introTl = null;
+  function finishIntro() {
+    gsap.set(INTRO_TARGETS, { clearProps: "all" });
+    $("#splash").classList.remove("intro-running");
+  }
   function introSplash() {
     if (!anim) return;
-    gsap.timeline({ defaults: { ease: "expo.out" } })
-      .from(".brand-leaf", { opacity: 0, y: -10, duration: 0.9 }, 0.15)
-      .from(".brand-name", { opacity: 0, y: 30, letterSpacing: "0.3em", duration: 1.2 }, 0.2)
-      .from(".brand-sub", { opacity: 0, y: 10, duration: 0.9 }, 0.45)
-      .from(".tagline", { opacity: 0, y: 12, duration: 0.9 }, 0.6)
-      .from(".cta", { opacity: 0, y: 24, scale: 0.96, duration: 0.9 }, 0.75)
-      .from(".quick", { opacity: 0, y: 24, duration: 0.8 }, 0.85)
-      .from(".quick .qi", { opacity: 0, scale: 0.4, duration: 0.7, stagger: 0.08, ease: "back.out(2)" }, 1.0)
-      .from(".splash-top > *", { opacity: 0, y: -10, duration: 0.7, stagger: 0.08 }, 0.9)
-      .from(".vat", { opacity: 0, duration: 0.8 }, 1.2);
+    if (introTl) { introTl.kill(); finishIntro(); }
+    $("#splash").classList.add("intro-running");
+    const to = { opacity: 1, x: 0, y: 0, scale: 1 };
+    introTl = gsap.timeline({ defaults: { ease: "expo.out" }, onComplete: finishIntro, onInterrupt: finishIntro })
+      .fromTo(".brand-leaf", { opacity: 0, y: -10 }, { ...to, duration: 0.9 }, 0.15)
+      .fromTo(".brand-name", { opacity: 0, y: 30, letterSpacing: "0.3em" }, { ...to, letterSpacing: "0.06em", duration: 1.2 }, 0.2)
+      .fromTo(".brand-sub", { opacity: 0, y: 10 }, { ...to, duration: 0.9 }, 0.45)
+      .fromTo(".tagline", { opacity: 0, y: 12 }, { ...to, duration: 0.9 }, 0.6)
+      .fromTo(".cta", { opacity: 0, y: 24, scale: 0.96 }, { ...to, duration: 0.9 }, 0.75)
+      .fromTo(".quick", { opacity: 0, y: 24 }, { ...to, duration: 0.8 }, 0.85)
+      .fromTo(".quick .qi", { opacity: 0, scale: 0.4 }, { ...to, duration: 0.7, stagger: 0.08, ease: "back.out(2)" }, 1.0)
+      .fromTo(".splash-top > *", { opacity: 0, y: -10 }, { ...to, duration: 0.7, stagger: 0.08 }, 0.9)
+      .fromTo(".vat", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 1.2);
+    // Güvenlik ağı: sekme arka plandaysa vb. animasyon takılırsa 3 sn sonra son hâle zorla
+    setTimeout(() => { if (introTl && introTl.isActive()) introTl.progress(1); }, 3000);
   }
 
   function enterAnim(scr) {

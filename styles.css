@@ -489,3 +489,6 @@ svg { display: block; }
   .brand-name { font-size: 48px; }
   .qi { width: 34px; height: 34px; }
 }
+
+/* Intro animasyonu sırasında CSS geçişlerini kapat (iOS Safari + GSAP çakışması) */
+#splash.intro-running .lg-btn, #splash.intro-running .qi, #splash.intro-running .icon-btn { transition: none !important; }
