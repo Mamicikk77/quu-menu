@@ -12,7 +12,7 @@ const t = (tr, en, ru) => ({ tr, en, ru });
 const CONFIG = {
   whatsapp: "905000000000",                       // Başında + olmadan, ülke koduyla
   instagram: "https://www.instagram.com/quucoffee/",
-  googleReview: "https://search.google.com/local/writereview?placeid=BURAYA_PLACE_ID",
+  googleReview: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x14c363ef7474ea9d:0x45985c3bac597629",
   wifiName: "QUU_Coffee",
   wifiPass: "sifre1234",
   currency: "₺",

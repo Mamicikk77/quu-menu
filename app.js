@@ -148,7 +148,7 @@
     `<span class="mt-wrap mt-${variant}"><span class="mt-inner"></span><button type="button" class="mt-btn" ${attrs}><span class="mt-shine"></span>${inner}</button></span>`;
 
   // isPressed durumu: dokunma/tıklama boyunca .is-pressed
-  const PRESSABLE = ".lg-btn, .mt-wrap";
+  const PRESSABLE = ".lg-btn, .mt-wrap, .quick-btn";
   const release = () => $$(".is-pressed").forEach((el) => el.classList.remove("is-pressed"));
   document.addEventListener("pointerdown", (e) => { const el = e.target.closest(PRESSABLE); if (el) el.classList.add("is-pressed"); }, { passive: true });
   ["pointerup", "pointercancel", "dragstart"].forEach((ev) => document.addEventListener(ev, release, { passive: true }));
@@ -388,7 +388,8 @@
       .from(".brand-sub", { opacity: 0, y: 10, duration: 0.9 }, 0.45)
       .from(".tagline", { opacity: 0, y: 12, duration: 0.9 }, 0.6)
       .from(".cta", { opacity: 0, y: 24, scale: 0.96, duration: 0.9 }, 0.75)
-      .from(".quick-btn", { opacity: 0, y: 24, duration: 0.8, stagger: 0.07 }, 0.9)
+      .from(".quick", { opacity: 0, y: 24, duration: 0.8 }, 0.85)
+      .from(".quick .qi", { opacity: 0, scale: 0.4, duration: 0.7, stagger: 0.08, ease: "back.out(2)" }, 1.0)
       .from(".splash-top > *", { opacity: 0, y: -10, duration: 0.7, stagger: 0.08 }, 0.9)
       .from(".vat", { opacity: 0, duration: 0.8 }, 1.2);
   }
