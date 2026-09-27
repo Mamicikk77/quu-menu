@@ -3,120 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0B2E4A" />
+  <meta name="theme-color" content="#000000" id="themeColor" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="description" content="QUU Coffee dijital menü — Türkçe, English, Русский" />
-  <title>QUU Coffee Menü</title>
+  <title>QUU Coffee</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ================= SPLASH ================= -->
+<div id="app">
+
+  <!-- ================= KARŞILAMA ================= -->
   <section id="splash" class="screen active" aria-label="QUU Coffee">
     <video id="bgVideo" class="splash-video" src="video/0926.mp4" autoplay muted loop playsinline preload="auto"></video>
-    <div class="splash-shade"></div>
+    <div class="splash-scrim"></div>
 
     <header class="splash-top">
-      <button id="soundBtn" class="icon-btn lg-btn lg-dark" aria-label="Ses"><span class="lg-glass"></span><span class="lg-shadow"></span><span class="lg-content" id="soundIco" data-ico="volx"></span></button>
-      <div class="lang-switch lg-surface lg-dark" role="group" aria-label="Dil / Language / Язык"></div>
+      <button id="soundBtn" class="glass glass-circle" type="button" aria-label="Ses" aria-pressed="false"><span id="soundIco" data-ico="volx"></span></button>
+      <div class="seg seg-glass glass" data-seg></div>
     </header>
 
-    <div class="splash-center">
-      <div class="brand">
-        <svg class="brand-leaf" viewBox="0 0 64 24" aria-hidden="true"><path d="M32 22c-6-2-10-7-10-14 6 1 10 6 10 14Zm0 0c6-2 10-7 10-14-6 1-10 6-10 14Z" fill="currentColor"/><path d="M2 14h18M44 14h18" stroke="currentColor" stroke-width="1.2"/></svg>
-        <h1 class="brand-name">QUU</h1>
-        <p class="brand-sub">C O F F E E</p>
-      </div>
-      <p class="tagline" data-i18n="tagline"></p>
-    </div>
-
-    <div class="splash-bottom">
-      <a href="#/menu" class="cta lg-btn lg-dark" id="ctaMenu">
-        <span class="lg-glass"></span><span class="lg-shadow"></span>
-        <span class="lg-content cta-inner"><span data-i18n="viewMenu"></span><span class="cta-arrow" data-ico="arrowR"></span></span>
-      </a>
-      <nav class="quick" aria-label="Links">
-        <a class="quick-btn" id="qWa" target="_blank" rel="noopener"><span class="qi wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span><span class="ql" data-i18n="whatsapp"></span></a>
-        <a class="quick-btn" id="qGo" target="_blank" rel="noopener"><span class="qi go"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.570-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.090-10.36 7.090-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.910l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span class="q-stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></span></span><span class="ql" data-i18n="review"></span></a>
-        <a class="quick-btn" id="qIg" target="_blank" rel="noopener"><span class="qi ig"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.6" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.35" fill="#fff"/></svg></span><span class="ql">Instagram</span></a>
-        <button class="quick-btn" id="qWifi" type="button"><span class="qi wf"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg></span><span class="ql">Wi-Fi</span></button>
+    <div class="splash-body">
+      <h1 class="brand-name intro" style="--d:80">QUU</h1>
+      <p class="brand-sub intro" style="--d:200">COFFEE</p>
+      <p class="tagline intro" style="--d:320" data-i18n="tagline"></p>
+      <a href="#/menu" class="btn-primary intro" style="--d:440"><span data-i18n="viewMenu"></span><span data-ico="chev"></span></a>
+      <nav class="actions intro" style="--d:540" aria-label="Links">
+        <a class="action glass" id="qWa" target="_blank" rel="noopener"><span data-ico="wa"></span><span class="action-l" data-i18n="whatsapp"></span></a>
+        <a class="action glass" id="qGo" target="_blank" rel="noopener"><span data-ico="star"></span><span class="action-l" data-i18n="review"></span></a>
+        <a class="action glass" id="qIg" target="_blank" rel="noopener"><span data-ico="ig"></span><span class="action-l">Instagram</span></a>
+        <button class="action glass" id="qWifi" type="button"><span data-ico="wifi"></span><span class="action-l">Wi-Fi</span></button>
       </nav>
-      <p class="vat" data-i18n="vat"></p>
+      <p class="vat intro" style="--d:640" data-i18n="vat"></p>
     </div>
   </section>
 
-  <!-- ================= CATEGORIES ================= -->
+  <!-- ================= MENÜ ================= -->
   <section id="menu" class="screen" aria-label="Menu">
-    <header class="bar">
-      <a href="#/" class="icon-btn lg-btn" aria-label="Home"><span class="lg-glass"></span><span class="lg-shadow"></span><span class="lg-content" data-ico="home"></span></a>
-      <div class="bar-title"><span class="mini-brand">QUU</span><span class="mini-sub">COFFEE</span></div>
-      <div class="lang-switch lg-surface compact" role="group"></div>
+    <header class="nav">
+      <a href="#/" class="nav-back"><span data-ico="chevL"></span><span data-i18n="home"></span></a>
+      <span class="nav-title" data-i18n="menuTitle"></span>
+      <div class="seg seg-compact" data-seg></div>
     </header>
-    <div class="search-wrap">
-      <label class="search">
-        <span data-ico="search"></span>
-        <input type="search" id="searchMenu" autocomplete="off" data-i18n-ph="searchPh" />
-        <button class="search-clear" type="button" data-ico="x" aria-label="Clear" hidden></button>
-      </label>
-    </div>
     <main class="scroll" id="menuScroll">
-      <h2 class="section-h" data-i18n="categories"></h2>
-      <div class="cat-grid" id="catGrid"></div>
-      <div class="results" id="menuResults" hidden></div>
-      <p class="foot-note" data-i18n="disclaimer"></p>
-    </main>
-  </section>
-
-  <!-- ================= CATEGORY ================= -->
-  <section id="category" class="screen" aria-label="Category">
-    <header class="bar">
-      <a href="#/menu" class="icon-btn lg-btn" aria-label="Back"><span class="lg-glass"></span><span class="lg-shadow"></span><span class="lg-content" data-ico="back"></span></a>
-      <div class="bar-title"><span class="mini-brand">QUU</span><span class="mini-sub">COFFEE</span></div>
-      <div class="lang-switch lg-surface compact" role="group"></div>
-    </header>
-    <div class="search-wrap">
+      <h1 class="large-title" data-i18n="menuTitle"></h1>
       <label class="search">
         <span data-ico="search"></span>
-        <input type="search" id="searchCat" autocomplete="off" data-i18n-ph="searchPh" />
-        <button class="search-clear" type="button" data-ico="x" aria-label="Clear" hidden></button>
+        <input type="search" id="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="searchPh" />
+        <button class="search-clear" id="searchClear" type="button" data-ico="x" aria-label="Clear" hidden></button>
       </label>
-    </div>
-    <nav class="chips" id="chips" aria-label="Categories"></nav>
-    <main class="scroll" id="catScroll">
-      <div id="catBody"></div>
-      <div class="results" id="catResults" hidden></div>
-      <div class="legend" id="legend"></div>
+      <div id="menuNormal">
+        <h2 class="group-h" data-i18n="featured"></h2>
+        <div class="featured" id="featured"></div>
+        <h2 class="group-h" data-i18n="categories"></h2>
+        <div class="list" id="catList"></div>
+      </div>
+      <div id="menuResults" hidden></div>
       <p class="foot-note" data-i18n="disclaimer"></p>
     </main>
   </section>
 
-  <!-- ================= BOTTOM SHEET ================= -->
-  <div class="sheet-backdrop" id="backdrop" hidden></div>
-  <div class="sheet" id="sheet" role="dialog" aria-modal="true" hidden>
-    <div class="sheet-grip"></div>
-    <button class="icon-btn lg-btn sheet-close" id="sheetClose" aria-label="Close"><span class="lg-glass"></span><span class="lg-shadow"></span><span class="lg-content" data-ico="x"></span></button>
-    <div class="sheet-body" id="sheetBody"></div>
-  </div>
+  <!-- ================= KATEGORİ ================= -->
+  <section id="category" class="screen" aria-label="Category">
+    <header class="nav">
+      <a href="#/menu" class="nav-back"><span data-ico="chevL"></span><span data-i18n="menuTitle"></span></a>
+      <span class="nav-title" id="catNavTitle"></span>
+      <div class="seg seg-compact" data-seg></div>
+    </header>
+    <main class="scroll" id="catScroll">
+      <h1 class="large-title" id="catTitle"></h1>
+      <p class="large-sub" id="catSub" hidden></p>
+      <nav class="chips" id="chips" aria-label="Categories"></nav>
+      <div id="catBody"></div>
+      <p class="foot-note" data-i18n="disclaimer"></p>
+    </main>
+  </section>
 
-  <!-- Liquid Glass SVG filtresi (LiquidButton > GlassFilter) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
-        <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
-        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
-        <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
-        <feComposite in="finalBlur" in2="finalBlur" operator="over" />
-      </filter>
-    </defs>
-  </svg>
+</div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<!-- ================= ALT PANEL ================= -->
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="sheet-grabber"></div>
+  <button class="sheet-close" id="sheetClose" type="button" data-ico="x" aria-label="Kapat"></button>
+  <div id="sheetBody"></div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+<div class="hud" id="hud" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

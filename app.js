@@ -6,46 +6,47 @@
   const UI = {
     tagline:   t("Her yudumda mutluluk", "Happiness in every sip", "Счастье в каждом глотке"),
     viewMenu:  t("Menüyü Görüntüle", "View Menu", "Открыть меню"),
+    home:      t("Ana Sayfa", "Home", "Главная"),
+    menuTitle: t("Menü", "Menu", "Меню"),
+    featured:  t("Öne Çıkanlar", "Featured", "Рекомендуем"),
     whatsapp:  t("WhatsApp", "WhatsApp", "WhatsApp"),
-    review:    t("Değerlendir", "Review us", "Отзыв"),
+    review:    t("Değerlendir", "Review", "Отзыв"),
     vat:       t("Fiyatlarımıza KDV dahildir", "All prices include VAT", "Все цены включают НДС"),
     categories:t("Kategoriler", "Categories", "Категории"),
-    searchPh:  t("Ürün ara… (ör. latte, waffle)", "Search… (e.g. latte, waffle)", "Поиск… (напр. латте, вафля)"),
+    searchPh:  t("Ara", "Search", "Поиск"),
     items:     t("ürün", "items", "позиций"),
     small:     t("Small", "Small", "Малый"),
     grande:    t("Grande", "Grande", "Гранде"),
     portion:   t("Porsiyon", "Portion", "Порция"),
     kcal:      t("kcal", "kcal", "ккал"),
-    avgKcal:   t("Ort. kalori", "Avg. calories", "Ср. калорийность"),
     allergens: t("Alerjenler", "Allergens", "Аллергены"),
     noAllergen:t("Bilinen alerjen içermez", "No known allergens", "Без известных аллергенов"),
-    legend:    t("Alerjen rehberi", "Allergen guide", "Справочник аллергенов"),
+    legend:    t("Alerjen Rehberi", "Allergen Guide", "Справочник аллергенов"),
     popular:   t("Favori", "Popular", "Хит"),
     noResult:  t("Sonuç bulunamadı", "No results found", "Ничего не найдено"),
-    results:   t("sonuç", "results", "результатов"),
     disclaimer:t(
       "Kalori değerleri ortalama tahminlerdir ve tam yağlı süt ile hesaplanmıştır. Tüm ürünler aynı mutfakta hazırlandığından eser miktarda alerjen içerebilir. Alerjiniz varsa lütfen personelimize bildiriniz. Fiyatlarımıza KDV dahildir.",
       "Calorie values are average estimates based on whole milk. All items are prepared in the same kitchen and may contain traces of allergens. Please inform our staff about any allergies. All prices include VAT.",
       "Калорийность — средние оценки на основе цельного молока. Все блюда готовятся на одной кухне и могут содержать следы аллергенов. Пожалуйста, сообщите персоналу о своей аллергии. Все цены включают НДС."
     ),
-    wifiTitle: t("Wi-Fi Bağlantısı", "Wi-Fi Connection", "Подключение к Wi-Fi"),
+    wifiTitle: t("Wi-Fi", "Wi-Fi", "Wi-Fi"),
     wifiText:  t("Ücretsiz internetimize bağlanın, keyfini çıkarın.", "Connect to our free Wi-Fi and enjoy.", "Подключайтесь к нашему бесплатному Wi-Fi."),
     network:   t("Ağ adı", "Network", "Сеть"),
     password:  t("Şifre", "Password", "Пароль"),
     copy:      t("Kopyala", "Copy", "Копировать"),
-    copied:    t("Kopyalandı ✓", "Copied ✓", "Скопировано ✓"),
+    copied:    t("Kopyalandı", "Copied", "Скопировано"),
+    close:     t("Kapat", "Close", "Закрыть"),
     waMsg:     t("Merhaba QUU Coffee!", "Hello QUU Coffee!", "Здравствуйте, QUU Coffee!"),
   };
   const LANGS = [["tr", "TR"], ["en", "EN"], ["ru", "RU"]];
 
-  /* ---------- İkonlar (Lucide tarzı SVG) ---------- */
+  /* ---------- İkonlar (SF Symbols tarzı çizgi ikonlar) ---------- */
   const P = {
     coffee: '<path d="M10 2v2M14 2v2M6 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/>',
     snow: '<path d="M12 2v20M2 12h20M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/>',
     glass: '<path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8"/><path d="M5 8h14"/><path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/><path d="m12 8 1-6h2"/>',
     leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
     star: '<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/>',
-    starF: '<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/>',
     citrus: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><path d="M12 6.5v11M6.5 12h11M8.1 8.1l7.8 7.8M15.9 8.1l-7.8 7.8"/>',
     mug: '<path d="M17 10h1a3 3 0 0 1 0 6h-1"/><path d="M3 10h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M7 2c0 1.2 1 1.6 1 2.8S7 6.6 7 7.5M11 2c0 1.2 1 1.6 1 2.8s-1 1.8-1 2.7"/>',
     tea: '<path d="M8 3h8"/><path d="M8.6 3c0 2.6 1.7 3.8 1.7 5.6 0 1.8-3.3 3.1-3.3 7.1A4.3 4.3 0 0 0 11.3 20h1.4a4.3 4.3 0 0 0 4.3-4.3c0-4-3.3-5.3-3.3-7.1 0-1.8 1.7-3 1.7-5.6"/><path d="M5 22h14"/>',
@@ -53,12 +54,10 @@
     bubble: '<path d="M6 8h12l-1.5 12.2a2 2 0 0 1-2 1.8h-5a2 2 0 0 1-2-1.8Z"/><path d="M5 8h14"/><path d="m13 8 2-6"/><circle cx="10" cy="18" r=".9"/><circle cx="14" cy="18.5" r=".9"/><circle cx="12" cy="15.5" r=".9"/>',
     waffle: '<rect x="3" y="3" width="18" height="18" rx="5"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>',
     plus: '<path d="M12 5v14M5 12h14"/>',
-    search: '<circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4-4"/>',
-    back: '<path d="m12 19-7-7 7-7M19 12H5"/>',
-    home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/>',
-    x: '<path d="M18 6 6 18M6 6l12 12"/>',
-    arrowR: '<path d="M5 12h14M13 5l7 7-7 7"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
     chev: '<path d="m9 18 6-6-6-6"/>',
+    chevL: '<path d="m15 18-6-6 6-6"/>',
+    x: '<path d="M18 6 6 18M6 6l12 12"/>',
     wifi: '<path d="M12 20h.01M2 8.82a15 15 0 0 1 20 0M5 12.86a10 10 0 0 1 14 0M8.5 16.43a5 5 0 0 1 7 0"/>',
     ig: '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.5 6.5h.01"/>',
     wa: '<path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.3Z"/><path d="M9 8.6c.3 2.8 2.6 5.2 5.4 5.6l1-1.1 1.7.6v1.2c0 .5-.4.9-.9.9-3.9-.2-7-3.3-7.2-7.2 0-.5.4-.9.9-.9h1.2l.6 1.7Z"/>',
@@ -77,7 +76,7 @@
   };
   const ico = (name, cls = "") => `<svg class="ico ${cls}" viewBox="0 0 24 24" aria-hidden="true">${P[name] || ""}</svg>`;
 
-  /* ---------- Durum ---------- */
+  /* ---------- Durum & yardımcılar ---------- */
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
     set(k, v) { try { localStorage.setItem(k, v); } catch {} },
@@ -92,12 +91,13 @@
   const L = (o) => (o && (o[state.lang] || o.tr)) || "";
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const hasGsap = typeof window.gsap !== "undefined";
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const anim = hasGsap && !reduced;
+  const reduceMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const motion = () => !reduceMQ.matches;
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const EASE_OUT = "cubic-bezier(.23, 1, .32, 1)";
+  const EASE_SHEET = "cubic-bezier(.32, .72, 0, 1)";
 
-  // Her ürüne kategori referansı ve arama indeksi
+  // Arama indeksi (Türkçe/Rusça harf farklarını yok sayar)
   const norm = (s) => s.toLocaleLowerCase("tr").replace(/ı/g, "i").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ё/g, "е");
   MENU.forEach((c) => c.items.forEach((it, i) => {
     it.cat = c; it.uid = `${c.id}-${i}`;
@@ -105,32 +105,36 @@
   }));
   const byUid = Object.fromEntries(MENU.flatMap((c) => c.items.map((it) => [it.uid, it])));
 
-  /* ---------- Statik metinler & ikonlar ---------- */
+  // iOS Safari'de :active durumunun dokunuşta hemen çalışması için
+  document.addEventListener("touchstart", () => {}, { passive: true });
+
+  /* ---------- Statik metinler ---------- */
   function paintStatic() {
     document.documentElement.lang = state.lang;
     $$("[data-i18n]").forEach((el) => (el.textContent = L(UI[el.dataset.i18n])));
-    // Royal Maison sadece temel Latin harfleri içerir; desteklenmeyen harf varsa yedek fonta geç
-    $$(".tagline, .section-h").forEach((el) => el.classList.toggle("no-rm", /[^ -~]/.test(el.textContent)));
     $$("[data-i18n-ph]").forEach((el) => (el.placeholder = L(UI[el.dataset.i18nPh])));
     $$("[data-ico]").forEach((el) => { if (!el.dataset.painted) { el.insertAdjacentHTML("afterbegin", ico(el.dataset.ico)); el.dataset.painted = 1; } });
-    document.title = `QUU Coffee — ${L(UI.categories)}`;
-    const wa = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(L(UI.waMsg))}`;
-    $("#qWa").href = wa; $("#qGo").href = CONFIG.googleReview; $("#qIg").href = CONFIG.instagram;
-    paintLangSwitches();
+    $("#sheetClose").setAttribute("aria-label", L(UI.close));
+    document.title = state.screen === "splash" ? "QUU Coffee" : `QUU Coffee — ${L(UI.menuTitle)}`;
+    $("#qWa").href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(L(UI.waMsg))}`;
+    $("#qGo").href = CONFIG.googleReview;
+    $("#qIg").href = CONFIG.instagram;
+    paintSegs();
   }
 
-  function paintLangSwitches() {
-    $$(".lang-switch").forEach((box) => {
+  function paintSegs() {
+    const idx = LANGS.findIndex(([k]) => k === state.lang);
+    $$("[data-seg]").forEach((box) => {
       if (!box.dataset.built) {
-        box.innerHTML = '<span class="lg-glass"></span><span class="lg-shadow"></span><span class="pill"></span>' + LANGS.map(([k, lab]) => `<button type="button" data-lang="${k}" aria-label="${lab}">${lab}</button>`).join("");
+        box.innerHTML = '<span class="seg-thumb" aria-hidden="true"></span>' +
+          LANGS.map(([k, lab]) => `<button type="button" data-lang="${k}" lang="${k}">${lab}</button>`).join("");
+        box.setAttribute("role", "group");
+        box.setAttribute("aria-label", "Dil / Language / Язык");
         box.addEventListener("click", (e) => { const b = e.target.closest("[data-lang]"); if (b) setLang(b.dataset.lang); });
         box.dataset.built = 1;
       }
-      const btns = $$("button", box);
-      btns.forEach((b) => { b.classList.toggle("on", b.dataset.lang === state.lang); b.setAttribute("aria-pressed", b.dataset.lang === state.lang); });
-      const on = btns.find((b) => b.dataset.lang === state.lang);
-      const pill = $(".pill", box);
-      if (on && on.offsetWidth) { pill.style.width = on.offsetWidth + "px"; pill.style.transform = `translateX(${on.offsetLeft - btns[0].offsetLeft}px)`; }
+      box.style.setProperty("--i", idx);
+      $$("button", box).forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
     });
   }
 
@@ -138,215 +142,253 @@
     if (lang === state.lang) return;
     state.lang = lang; store.set("quu-lang", lang);
     paintStatic();
-    const target = state.screen === "menu" ? "#menuScroll" : state.screen === "category" ? "#catScroll" : ".splash-center";
     renderCurrent();
-    if (anim) gsap.fromTo(target, { opacity: 0.2, y: 6 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" });
+    requestAnimationFrame(() => { updateNav($("#menu")); updateNav($("#category")); centerChip(false); });
   }
 
-  /* ---------- Butonlar: LiquidButton & MetalButton (liquid-glass-button.tsx portu) ---------- */
-  const metalBtn = (inner, attrs = "", variant = "gold") =>
-    `<span class="mt-wrap mt-${variant}"><span class="mt-inner"></span><button type="button" class="mt-btn" ${attrs}><span class="mt-shine"></span>${inner}</button></span>`;
-
-  // isPressed durumu: dokunma/tıklama boyunca .is-pressed
-  const PRESSABLE = ".lg-btn, .mt-wrap, .quick-btn";
-  const release = () => $$(".is-pressed").forEach((el) => el.classList.remove("is-pressed"));
-  document.addEventListener("pointerdown", (e) => { const el = e.target.closest(PRESSABLE); if (el) el.classList.add("is-pressed"); }, { passive: true });
-  ["pointerup", "pointercancel", "dragstart"].forEach((ev) => document.addEventListener(ev, release, { passive: true }));
-  document.addEventListener("pointerout", (e) => { const el = e.target.closest(PRESSABLE); if (el && !el.contains(e.relatedTarget)) el.classList.remove("is-pressed"); }, { passive: true });
-
   /* ---------- Parçalar ---------- */
-  const fmt = (n) => `${n} ${CONFIG.currency}`;
-  const algDots = (a) => a.length
-    ? `<span class="alg-row">${a.map((k) => `<span class="alg-dot" style="background:${ALLERGENS[k].color}" title="${esc(L(ALLERGENS[k].n))}">${ico(k)}</span>`).join("")}</span>`
-    : "";
-  const kcalTag = (k) => `<span class="kcal">${ico("flame")}${k[0]}${k[1] ? "–" + k[1] : ""} ${L(UI.kcal)}</span>`;
+  const fmt = (n) => `${n}<span class="cur">${CONFIG.currency}</span>`;
+  const alg = (k, cls = "") => `<span class="alg ${cls}" style="--c:${ALLERGENS[k].color}" title="${esc(L(ALLERGENS[k].n))}">${ico(k)}</span>`;
+  const kcalTxt = (k) => `${k[0]}${k[1] ? "–" + k[1] : ""} ${L(UI.kcal)}`;
 
   function itemHTML(it) {
-    const prices = it.p.length === 2
-      ? `<div class="prices"><span class="price"><small>S</small><b>${it.p[0]}</b></span><span class="price"><small>G</small><b>${it.p[1]}</b></span></div>`
-      : `<div class="prices"><span class="price single"><b>${fmt(it.p[0])}</b></span></div>`;
-    return `<button type="button" class="item" data-uid="${it.uid}">
-      <div class="item-main">
-        <div class="item-name">${esc(L(it.n))}${it.pop ? `<span class="badge-pop">${esc(L(UI.popular))}</span>` : ""}</div>
-        <div class="item-desc">${esc(L(it.d))}</div>
-        <div class="item-meta">${kcalTag(it.k)}${algDots(it.a)}</div>
-      </div>
-      ${prices}
+    const price = it.p.length === 2
+      ? `<span class="price two"><span>${it.p[0]}</span><span>${it.p[1]}</span></span>`
+      : `<span class="price">${fmt(it.p[0])}</span>`;
+    return `<button type="button" class="row item" data-uid="${it.uid}">
+      <span class="item-main">
+        <span class="item-name">${esc(L(it.n))}${it.pop ? `<span class="badge">${esc(L(UI.popular))}</span>` : ""}</span>
+        <span class="item-desc">${esc(L(it.d))}</span>
+        <span class="item-meta"><span class="kcal">${ico("flame")}${esc(kcalTxt(it.k))}</span>${it.a.length ? `<span class="algs">${it.a.map((k) => alg(k)).join("")}</span>` : ""}</span>
+      </span>
+      ${price}
     </button>`;
   }
 
-  const sizeHead = (items) => items.some((i) => i.p.length === 2)
-    ? `<div class="size-head"><span>${esc(L(UI.small))}</span><span>${esc(L(UI.grande))}</span></div>` : "";
-
-  /* ---------- Kategoriler ekranı ---------- */
-  function renderMenu() {
-    $("#catGrid").innerHTML = MENU.map((c, i) => {
-      const wide = i === MENU.length - 2 ? " wide" : ""; // waffle geniş kart
-      return `<a href="#/c/${c.id}" class="cat-card tone-${c.tone}${wide}">
-        <span class="cat-go lg-btn lg-dark"><span class="lg-glass"></span><span class="lg-shadow"></span><span class="lg-content">${ico("chev")}</span></span>
-        <span class="cat-ico">${ico(c.icon)}</span>
-        <span><span class="cat-name" style="display:block">${esc(L(c.n))}</span>
-        <span class="cat-count">${c.items.length} ${esc(L(UI.items))}</span></span>
-      </a>`;
-    }).join("");
+  function listBlock(items, label) {
+    const two = items.some((i) => i.p.length === 2);
+    const cols = two ? `<span class="size-cols" aria-hidden="true"><span>${esc(L(UI.small))}</span><span>${esc(L(UI.grande))}</span></span>` : "";
+    return `<div class="list-head"><span>${esc(label)}</span>${cols}</div><div class="list">${items.map(itemHTML).join("")}</div>`;
   }
+
+  /* ---------- Menü ekranı ---------- */
+  function renderMenu() {
+    const feat = MENU.map((c) => c.items.find((i) => i.pop)).filter(Boolean);
+    $("#featured").innerHTML = feat.map((it) => `<button type="button" class="feat" data-uid="${it.uid}">
+        <span class="squircle lg tone-${it.cat.tone}">${ico(it.cat.icon)}</span>
+        <span class="feat-name">${esc(L(it.n))}</span>
+        <span class="feat-cat">${esc(L(it.cat.n))}</span>
+        <span class="feat-price">${fmt(it.p[0])}</span>
+      </button>`).join("");
+    $("#catList").innerHTML = MENU.map((c) => `<a href="#/c/${c.id}" class="row cat-row">
+        <span class="squircle tone-${c.tone}">${ico(c.icon)}</span>
+        <span class="row-title">${esc(L(c.n))}</span>
+        <span class="row-detail">${c.items.length}</span>
+        ${ico("chev", "chev")}
+      </a>`).join("");
+  }
+
+  /* ---------- Arama ---------- */
+  function applySearch() {
+    const q = state.query.trim();
+    const res = $("#menuResults");
+    $("#searchClear").hidden = !q;
+    $("#menuNormal").hidden = !!q;
+    res.hidden = !q;
+    if (!q) { res.innerHTML = ""; return; }
+    const terms = norm(q).split(/\s+/).filter(Boolean);
+    const hits = MENU.flatMap((c) => c.items).filter((it) => terms.every((w) => it.idx.includes(w)));
+    if (!hits.length) { res.innerHTML = `<div class="empty">${ico("search")}<p>${esc(L(UI.noResult))}</p></div>`; return; }
+    const groups = new Map();
+    hits.forEach((h) => { if (!groups.has(h.cat)) groups.set(h.cat, []); groups.get(h.cat).push(h); });
+    res.innerHTML = [...groups].map(([c, g]) => listBlock(g, `${L(c.n)} · ${g.length}`)).join("");
+  }
+  let searchTimer;
+  const searchInput = $("#search");
+  searchInput.addEventListener("input", () => {
+    state.query = searchInput.value;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applySearch, 80);
+  });
+  searchInput.addEventListener("keydown", (e) => { if (e.key === "Enter") searchInput.blur(); });
+  $("#searchClear").addEventListener("click", () => {
+    state.query = ""; searchInput.value = ""; applySearch(); searchInput.focus();
+  });
 
   /* ---------- Kategori ekranı ---------- */
   function renderChips() {
-    $("#chips").innerHTML = MENU.map((c) =>
-      `<a href="#/c/${c.id}" class="chip${state.cat && c.id === state.cat.id ? " on" : ""}" data-id="${c.id}" aria-current="${state.cat && c.id === state.cat.id}">${ico(c.icon)}${esc(L(c.n))}</a>`
-    ).join("");
+    $("#chips").innerHTML = MENU.map((c) => {
+      const on = c === state.cat;
+      return `<a href="#/c/${c.id}" class="chip${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${esc(L(c.n))}</a>`;
+    }).join("");
   }
   function centerChip(smooth) {
     const on = $("#chips .chip.on"); if (!on) return;
     const box = $("#chips");
-    const left = on.offsetLeft - box.clientWidth / 2 + on.offsetWidth / 2;
-    box.scrollTo({ left, behavior: smooth && !reduced ? "smooth" : "auto" });
+    box.scrollTo({ left: on.offsetLeft - box.clientWidth / 2 + on.offsetWidth / 2, behavior: smooth && motion() ? "smooth" : "auto" });
   }
   function renderCategory() {
     const c = state.cat; if (!c) return;
-    $("#catBody").innerHTML = `
-      <div class="cat-hero tone-${c.tone}">
-        <span class="cat-ico">${ico(c.icon)}</span>
-        <div><h2>${esc(L(c.n))}</h2><p>${c.sub ? esc(L(c.sub)) + " · " : ""}${c.items.length} ${esc(L(UI.items))}</p></div>
-      </div>
-      ${sizeHead(c.items)}
-      <div class="items">${c.items.map(itemHTML).join("")}</div>`;
-    const used = [...new Set(c.items.flatMap((i) => i.a))];
-    $("#legend").innerHTML = `<h3>${esc(L(UI.legend))}</h3><div class="legend-list">${Object.keys(ALLERGENS).map((k) =>
-      `<span style="opacity:${used.includes(k) ? 1 : .45}"><span class="alg-dot" style="background:${ALLERGENS[k].color}">${ico(k)}</span>${esc(L(ALLERGENS[k].n))}</span>`).join("")}</div>`;
+    $("#catTitle").textContent = L(c.n);
+    $("#catNavTitle").textContent = L(c.n);
+    const sub = $("#catSub");
+    sub.textContent = c.sub ? L(c.sub) : "";
+    sub.hidden = !c.sub;
+    const used = new Set(c.items.flatMap((i) => i.a));
+    $("#catBody").innerHTML = listBlock(c.items, `${c.items.length} ${L(UI.items)}`) +
+      `<h2 class="group-h">${esc(L(UI.legend))}</h2>
+       <div class="legend">${Object.keys(ALLERGENS).map((k) =>
+        `<span class="legend-item${used.has(k) ? "" : " dim"}">${alg(k)}${esc(L(ALLERGENS[k].n))}</span>`).join("")}</div>`;
   }
 
-  /* ---------- Arama ---------- */
-  function searchHTML(q) {
-    const terms = norm(q).split(/\s+/).filter(Boolean);
-    const hits = MENU.flatMap((c) => c.items).filter((it) => terms.every((w) => it.idx.includes(w)));
-    if (!hits.length) return `<div class="empty">${ico("search")}<p>${esc(L(UI.noResult))}</p></div>`;
-    const groups = {};
-    hits.forEach((h) => (groups[h.cat.id] ||= []).push(h));
-    return Object.values(groups).map((g) =>
-      `<h3 class="results-h">${esc(L(g[0].cat.n))} · ${g.length}</h3><div class="items">${g.map(itemHTML).join("")}</div>`
-    ).join("");
+  /* ---------- Büyük başlık → gezinme çubuğu ---------- */
+  function updateNav(screen) {
+    const sc = $(".scroll", screen), title = $(".large-title", screen), nav = $(".nav", screen);
+    if (!sc || !title) return;
+    const y = sc.scrollTop;
+    screen.classList.toggle("scrolled", y > 2);
+    screen.classList.toggle("title-in", y > title.offsetTop + title.offsetHeight - nav.offsetHeight - 4);
   }
-  function applySearch(scope) {
-    const q = state.query.trim();
-    const isMenu = scope === "menu";
-    const results = $(isMenu ? "#menuResults" : "#catResults");
-    const normal = isMenu ? [$("#catGrid"), $("#menuScroll .section-h")] : [$("#catBody"), $("#legend")];
-    if (!isMenu) $("#chips").style.opacity = q ? ".45" : "";
-    $$(".search-clear").forEach((b) => (b.hidden = !q));
-    if (!q) { results.hidden = true; normal.forEach((n) => (n.hidden = false)); return; }
-    normal.forEach((n) => (n.hidden = true));
-    results.hidden = false;
-    results.innerHTML = searchHTML(q);
-    if (anim) gsap.from($$(".item, .results-h", results).slice(0, 12), { opacity: 0, y: 10, duration: 0.3, stagger: 0.03, ease: "power2.out" });
-  }
-  let searchTimer;
-  $$(".search input").forEach((inp) => {
-    inp.addEventListener("input", () => {
-      state.query = inp.value;
-      $$(".search input").forEach((o) => o !== inp && (o.value = inp.value));
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(() => applySearch(state.screen), 120);
-    });
-    inp.addEventListener("keydown", (e) => { if (e.key === "Enter") inp.blur(); });
+  ["#menu", "#category"].forEach((id) => {
+    const screen = $(id); let ticking = false;
+    $(".scroll", screen).addEventListener("scroll", () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => { ticking = false; updateNav(screen); });
+    }, { passive: true });
   });
-  $$(".search-clear").forEach((b) => b.addEventListener("click", () => {
-    state.query = ""; $$(".search input").forEach((i) => (i.value = ""));
-    applySearch(state.screen);
-    b.closest(".search").querySelector("input").focus();
-  }));
 
-  /* ---------- Alt panel (ürün detayı / Wi-Fi) ---------- */
-  const sheet = $("#sheet"), backdrop = $("#backdrop");
-  let lastFocus = null;
+  /* ---------- Alt panel (iOS kart sunumu) ---------- */
+  const app = $("#app"), sheet = $("#sheet"), scrim = $("#scrim");
+  let sheetOpen = false, lastFocus = null, hideTimer = 0;
+
   function openSheet(html) {
-    lastFocus = document.activeElement;
+    clearTimeout(hideTimer);
+    if (!sheetOpen) lastFocus = document.activeElement;
     $("#sheetBody").innerHTML = html;
-    sheet.hidden = false; backdrop.hidden = false;
+    sheet.hidden = false; scrim.hidden = false;
     sheet.scrollTop = 0;
-    if (anim) {
-      gsap.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.3 });
-      gsap.fromTo(sheet, { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: "expo.out" });
-      gsap.from($$("#sheetBody > *"), { opacity: 0, y: 14, duration: 0.4, stagger: 0.05, delay: 0.12, ease: "power2.out" });
-    }
+    sheet.style.transitionDuration = "";
+    sheet.getBoundingClientRect(); // başlangıç konumunu sabitle → geçiş aşağıdan başlasın
+    sheetOpen = true;
+    document.body.classList.add("sheet-open");
+    app.inert = true;
     $("#sheetClose").focus({ preventScroll: true });
   }
-  function closeSheet() {
-    if (sheet.hidden) return;
-    const done = () => { sheet.hidden = true; backdrop.hidden = true; lastFocus && lastFocus.focus({ preventScroll: true }); };
-    if (anim) {
-      gsap.to(backdrop, { opacity: 0, duration: 0.22 });
-      gsap.to(sheet, { yPercent: 100, duration: 0.28, ease: "power2.in", onComplete: done });
-    } else done();
+  function closeSheet(duration) {
+    if (!sheetOpen) return;
+    sheetOpen = false;
+    if (duration) sheet.style.transitionDuration = duration + "ms";
+    document.body.classList.remove("sheet-open");
+    app.inert = false;
+    hideTimer = setTimeout(() => {
+      if (sheetOpen) return;
+      sheet.hidden = true; scrim.hidden = true;
+      sheet.style.transitionDuration = "";
+    }, motion() ? Math.max(duration || 0, 380) + 40 : 220);
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
   }
-  $("#sheetClose").addEventListener("click", closeSheet);
-  backdrop.addEventListener("click", closeSheet);
+  $("#sheetClose").addEventListener("click", () => closeSheet());
+  scrim.addEventListener("click", () => closeSheet());
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSheet(); });
 
-  // Aşağı kaydırarak kapatma
+  // Aşağı çekerek kapatma: parmağı 1:1 izler, hızı devralır, sınırda esner
   (() => {
-    let y0 = null, dy = 0;
-    sheet.addEventListener("touchstart", (e) => { if (sheet.scrollTop <= 0) { y0 = e.touches[0].clientY; dy = 0; } }, { passive: true });
-    sheet.addEventListener("touchmove", (e) => {
-      if (y0 === null) return;
-      dy = Math.max(0, e.touches[0].clientY - y0);
-      sheet.style.transform = `translateY(${dy}px)`;
+    let y0 = 0, dragging = false, armed = false, off = 0, h = 0, samples = [];
+    const rubber = (x, d) => (x * d * 0.55) / (d + 0.55 * Math.abs(x));
+    const reset = () => {
+      sheet.style.transform = ""; scrim.style.opacity = ""; app.style.transform = ""; app.style.borderRadius = "";
+      document.body.classList.remove("sheet-dragging");
+    };
+    sheet.addEventListener("touchstart", (e) => {
+      if (!sheetOpen || e.touches.length > 1) { armed = false; return; }
+      armed = sheet.scrollTop <= 0;
+      dragging = false; off = 0;
+      y0 = e.touches[0].clientY; h = sheet.offsetHeight;
+      samples = [{ y: y0, t: e.timeStamp }];
     }, { passive: true });
-    sheet.addEventListener("touchend", () => {
-      if (y0 === null) return;
-      sheet.style.transform = "";
-      if (dy > 110) closeSheet();
-      else if (dy > 0 && anim) gsap.fromTo(sheet, { y: dy }, { y: 0, duration: 0.3, ease: "back.out(2)" });
-      y0 = null;
-    });
+    sheet.addEventListener("touchmove", (e) => {
+      if (!armed || e.touches.length > 1) return;
+      const y = e.touches[0].clientY;
+      if (!dragging) {
+        if (y - y0 > 8) { dragging = true; y0 = y; document.body.classList.add("sheet-dragging"); } // eşik aşılınca kilitle, sıçrama olmasın
+        else { if (y - y0 < -4) armed = false; return; }
+      }
+      e.preventDefault();
+      const d = y - y0;
+      off = d >= 0 ? d : rubber(d, h);
+      sheet.style.transform = `translate3d(0, ${off}px, 0)`;
+      const p = Math.min(1, Math.max(0, off / h));
+      scrim.style.opacity = String(1 - p);
+      if (motion()) {
+        app.style.transform = `translateY(${8 * (1 - p)}px) scale(${0.94 + 0.06 * p})`;
+        app.style.borderRadius = `${16 * (1 - p)}px`;
+      }
+      samples.push({ y, t: e.timeStamp });
+      if (samples.length > 5) samples.shift();
+    }, { passive: false });
+    const end = () => {
+      if (!dragging) return;
+      dragging = false; armed = false;
+      const a = samples[0], b = samples[samples.length - 1];
+      const v = (b.y - a.y) / Math.max(1, b.t - a.t);          // px/ms
+      const projected = off + v * (0.998 / (1 - 0.998));       // Apple'ın momentum projeksiyonu
+      const dismiss = v > -0.05 && projected > h * 0.45;
+      reset();
+      if (dismiss) closeSheet(v > 0.05 ? Math.min(360, Math.max(180, (h - off) / v)) : 320);
+    };
+    sheet.addEventListener("touchend", end);
+    sheet.addEventListener("touchcancel", end);
   })();
 
   function openItem(it) {
     const two = it.p.length === 2;
-    const sizes = it.p.map((p, i) => `<div class="sh-size">
-        <small>${esc(two ? L(i ? UI.grande : UI.small) : L(UI.portion))}</small>
-        <b>${fmt(p)}</b>
+    const sizes = it.p.map((p, i) => `<div class="size">
+        <span class="size-label">${esc(two ? L(i ? UI.grande : UI.small) : L(UI.portion))}</span>
+        <span class="size-price">${p}<small> ${CONFIG.currency}</small></span>
         <span class="kcal">${ico("flame")}~${it.k[i]} ${esc(L(UI.kcal))}</span>
       </div>`).join("");
     const algs = it.a.length
-      ? `<div class="sh-algs">${it.a.map((k) => `<span class="sh-alg"><span class="alg-dot" style="background:${ALLERGENS[k].color}">${ico(k)}</span>${esc(L(ALLERGENS[k].n))}</span>`).join("")}</div>`
-      : `<span class="sh-none">${ico("shield")}${esc(L(UI.noAllergen))}</span>`;
+      ? it.a.map((k) => `<div class="row alg-row">${alg(k, "lg")}<span class="row-title">${esc(L(ALLERGENS[k].n))}</span></div>`).join("")
+      : `<div class="row alg-row"><span class="alg lg" style="--c:var(--green)">${ico("shield")}</span><span class="row-title">${esc(L(UI.noAllergen))}</span></div>`;
     openSheet(`
-      <span class="sh-tag">${ico(it.cat.icon)}${esc(L(it.cat.n))}</span>
-      <h2 class="sh-title">${esc(L(it.n))}</h2>
+      <span class="squircle xl tone-${it.cat.tone}">${ico(it.cat.icon)}</span>
+      <span class="eyebrow">${esc(L(it.cat.n))}</span>
+      <h2 class="sh-title" id="sheetTitle">${esc(L(it.n))}</h2>
       <p class="sh-desc">${esc(L(it.d))}</p>
-      <div class="sh-sizes">${sizes}</div>
-      <h3 class="sh-h">${esc(L(UI.allergens))}</h3>
-      ${algs}
-      <p class="sh-note">${esc(L(UI.disclaimer))}</p>`);
+      <div class="sizes">${sizes}</div>
+      <h3 class="group-h">${esc(L(UI.allergens))}</h3>
+      <div class="list">${algs}</div>
+      <p class="foot-note">${esc(L(UI.disclaimer))}</p>`);
   }
 
   function openWifi() {
+    const row = (label, val) => `<div class="row">
+        <span class="kv-main"><small>${esc(label)}</small><b>${esc(val)}</b></span>
+        <button type="button" class="btn-tinted" data-copy="${esc(val)}">${ico("copy")}${esc(L(UI.copy))}</button>
+      </div>`;
     openSheet(`
-      <span class="sh-tag">${ico("wifi")}Wi-Fi</span>
-      <h2 class="sh-title">${esc(L(UI.wifiTitle))}</h2>
+      <span class="squircle xl tone-sea">${ico("wifi")}</span>
+      <h2 class="sh-title" id="sheetTitle" style="margin-top:16px">${esc(L(UI.wifiTitle))}</h2>
       <p class="sh-desc">${esc(L(UI.wifiText))}</p>
-      <div class="wifi-card">
-        <div class="wifi-row"><div><small>${esc(L(UI.network))}</small><b>${esc(CONFIG.wifiName)}</b></div>
-          ${metalBtn(ico("copy") + esc(L(UI.copy)), `data-copy="${esc(CONFIG.wifiName)}"`)}</div>
-        <div class="wifi-row"><div><small>${esc(L(UI.password))}</small><b>${esc(CONFIG.wifiPass)}</b></div>
-          ${metalBtn(ico("copy") + esc(L(UI.copy)), `data-copy="${esc(CONFIG.wifiPass)}"`)}</div>
-      </div>`);
+      <div class="list">${row(L(UI.network), CONFIG.wifiName)}${row(L(UI.password), CONFIG.wifiPass)}</div>`);
   }
 
-  function toast(msg) {
-    const el = $("#toast"); el.textContent = msg; el.classList.add("show");
-    clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 1800);
+  /* ---------- Bildirim ---------- */
+  function hud(msg) {
+    const el = $("#hud");
+    el.innerHTML = ico("check") + esc(msg);
+    el.classList.add("show");
+    clearTimeout(hud.t); hud.t = setTimeout(() => el.classList.remove("show"), 1600);
   }
   async function copyText(txt) {
     try { await navigator.clipboard.writeText(txt); }
-    catch { const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch {} ta.remove(); }
-    toast(L(UI.copied));
+    catch { const ta = document.createElement("textarea"); ta.value = txt; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch {} ta.remove(); }
+    if (navigator.vibrate) navigator.vibrate(10);
+    hud(L(UI.copied));
   }
 
   document.addEventListener("click", (e) => {
-    const item = e.target.closest(".item[data-uid]");
+    const item = e.target.closest("[data-uid]");
     if (item) { openItem(byUid[item.dataset.uid]); return; }
     const cp = e.target.closest("[data-copy]");
     if (cp) copyText(cp.dataset.copy);
@@ -355,18 +397,45 @@
 
   /* ---------- Video & ses ---------- */
   const video = $("#bgVideo"), soundBtn = $("#soundBtn");
+  const playVideo = () => { const p = video.play(); if (p) p.catch(() => {}); };
   soundBtn.addEventListener("click", () => {
     video.muted = !video.muted;
-    if (!video.muted) video.play().catch(() => {});
+    if (!video.muted) playVideo();
     $("#soundIco").innerHTML = ico(video.muted ? "volx" : "vol");
     soundBtn.setAttribute("aria-pressed", String(!video.muted));
   });
-  const playVideo = () => { const p = video.play(); if (p) p.catch(() => {}); };
-  // Bazı iOS modlarında otomatik oynatma engellenirse ilk dokunuşta başlat
+  // Otomatik oynatma engellenirse ilk dokunuşta başlat
   document.addEventListener("touchstart", function once() { if (state.screen === "splash") playVideo(); document.removeEventListener("touchstart", once); }, { passive: true });
 
-  /* ---------- Yönlendirme & geçişler ---------- */
+  /* ---------- Ekran geçişleri (iOS gezinme yığını) ---------- */
   const ORDER = { splash: 0, menu: 1, category: 2 };
+  let running = [];
+
+  function transition(from, to, dir) {
+    running.forEach((a) => a.cancel());
+    running = [];
+    $$(".screen").forEach((s) => { s.style.zIndex = ""; s.classList.remove("pushing"); if (s !== from && s !== to) s.classList.remove("active"); });
+    to.classList.add("active");
+    if (!motion()) {
+      from.classList.remove("active");
+      to.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: "ease" });
+      return;
+    }
+    const top = dir > 0 ? to : from, under = dir > 0 ? from : to;
+    top.style.zIndex = 2; under.style.zIndex = 1; top.classList.add("pushing");
+    const opts = { duration: 480, easing: EASE_SHEET };
+    const slide = [{ transform: "translate3d(100%,0,0)" }, { transform: "translate3d(0,0,0)" }];
+    const back = [{ transform: "translate3d(-28%,0,0)", opacity: 0.85 }, { transform: "translate3d(0,0,0)", opacity: 1 }];
+    running = dir > 0
+      ? [to.animate(slide, opts), from.animate([...back].reverse(), opts)]
+      : [from.animate([...slide].reverse(), opts), to.animate(back, opts)];
+    Promise.all(running.map((a) => a.finished)).then(() => {
+      from.classList.remove("active");
+      top.style.zIndex = ""; under.style.zIndex = ""; top.classList.remove("pushing");
+      running = [];
+    }).catch(() => {});
+  }
+
   function parseHash() {
     const h = location.hash || "#/";
     const m = h.match(/^#\/c\/([\w-]+)/);
@@ -376,109 +445,67 @@
   }
 
   function renderCurrent() {
-    if (state.screen === "menu") { renderMenu(); applySearch("menu"); }
-    if (state.screen === "category") { renderChips(); renderCategory(); applySearch("category"); requestAnimationFrame(() => centerChip(false)); }
+    if (state.screen === "menu") { renderMenu(); applySearch(); }
+    if (state.screen === "category") { renderChips(); renderCategory(); }
   }
 
-  // iOS Safari: CSS transform geçişleri GSAP ile çakışıp öğeleri ara durumda bırakabiliyor.
-  // Bu yüzden intro sırasında geçişler kapatılır, bitince tüm satır içi stiller temizlenir.
-  const INTRO_TARGETS = ".brand-leaf, .brand-name, .brand-sub, .tagline, .cta, .quick, .quick .qi, .splash-top > *, .vat";
-  let introTl = null;
-  function finishIntro() {
-    gsap.set(INTRO_TARGETS, { clearProps: "all" });
-    $("#splash").classList.remove("intro-running");
-  }
-  function introSplash() {
-    if (!anim) return;
-    if (introTl) { introTl.kill(); finishIntro(); }
-    $("#splash").classList.add("intro-running");
-    const to = { opacity: 1, x: 0, y: 0, scale: 1 };
-    introTl = gsap.timeline({ defaults: { ease: "expo.out" }, onComplete: finishIntro, onInterrupt: finishIntro })
-      .fromTo(".brand-leaf", { opacity: 0, y: -10 }, { ...to, duration: 0.9 }, 0.15)
-      .fromTo(".brand-name", { opacity: 0, y: 30, letterSpacing: "0.3em" }, { ...to, letterSpacing: "0.06em", duration: 1.2 }, 0.2)
-      .fromTo(".brand-sub", { opacity: 0, y: 10 }, { ...to, duration: 0.9 }, 0.45)
-      .fromTo(".tagline", { opacity: 0, y: 12 }, { ...to, duration: 0.9 }, 0.6)
-      .fromTo(".cta", { opacity: 0, y: 24, scale: 0.96 }, { ...to, duration: 0.9 }, 0.75)
-      .fromTo(".quick", { opacity: 0, y: 24 }, { ...to, duration: 0.8 }, 0.85)
-      .fromTo(".quick .qi", { opacity: 0, scale: 0.4 }, { ...to, duration: 0.7, stagger: 0.08, ease: "back.out(2)" }, 1.0)
-      .fromTo(".splash-top > *", { opacity: 0, y: -10 }, { ...to, duration: 0.7, stagger: 0.08 }, 0.9)
-      .fromTo(".vat", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 1.2);
-    // Güvenlik ağı: sekme arka plandaysa vb. animasyon takılırsa 3 sn sonra son hâle zorla
-    setTimeout(() => { if (introTl && introTl.isActive()) introTl.progress(1); }, 3000);
-  }
-
-  function enterAnim(scr) {
-    if (!anim) return;
-    if (scr === "menu") {
-      gsap.from("#catGrid .cat-card", { opacity: 0, y: 22, scale: 0.94, duration: 0.5, stagger: { each: 0.045, grid: "auto" }, ease: "back.out(1.4)", delay: 0.08, clearProps: "all" });
-    } else if (scr === "category") {
-      gsap.from("#catBody .cat-hero", { opacity: 0, y: 14, scale: 0.97, duration: 0.5, ease: "expo.out" });
-      gsap.from("#catBody .item", { opacity: 0, y: 18, duration: 0.45, stagger: 0.04, ease: "power3.out", delay: 0.08, clearProps: "all" });
-    }
+  function setThemeColor() {
+    $("#themeColor").content = state.screen === "splash"
+      ? "#000000"
+      : getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#F2F2F7";
   }
 
   function go(next) {
     const prev = state.screen;
-    const catChanged = next.screen === "category" && prev === "category" && state.cat !== next.cat;
-    const prevIdx = state.cat ? MENU.indexOf(state.cat) : 0;
-    state.screen = next.screen;
-    if (next.cat) state.cat = next.cat;
     closeSheet();
 
-    if (next.screen === "splash") playVideo(); else video.pause();
-
-    // Aynı ekranda kategori değişimi → kaydırmalı geçiş
-    if (catChanged) {
-      const dir = MENU.indexOf(state.cat) > prevIdx ? 1 : -1;
-      const swap = () => { renderChips(); renderCategory(); applySearch("category"); $("#catScroll").scrollTop = 0; centerChip(true); };
-      if (anim) {
-        gsap.to("#catBody", { opacity: 0, x: -40 * dir, duration: 0.18, ease: "power2.in", onComplete: () => {
-          swap();
-          gsap.fromTo("#catBody", { opacity: 0, x: 40 * dir }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out", clearProps: "transform" });
-          gsap.from("#catBody .item", { opacity: 0, y: 12, duration: 0.35, stagger: 0.03, ease: "power2.out", delay: 0.05, clearProps: "all" });
-        } });
-      } else swap();
+    // Aynı ekranda kategori değişimi → içerik yumuşakça yer değiştirir
+    if (prev === "category" && next.screen === "category") {
+      if (next.cat === state.cat) return;
+      const dir = MENU.indexOf(next.cat) > MENU.indexOf(state.cat) ? 1 : -1;
+      state.cat = next.cat;
+      renderChips(); renderCategory();
+      $("#catScroll").scrollTop = 0;
+      updateNav($("#category"));
+      centerChip(true);
+      if (motion()) {
+        const o = { duration: 280, easing: EASE_OUT };
+        $("#catBody").animate([{ opacity: 0, transform: `translateX(${18 * dir}px)` }, { opacity: 1, transform: "none" }], o);
+        $("#catTitle").animate([{ opacity: 0 }, { opacity: 1 }], o);
+      }
       return;
     }
 
+    state.screen = next.screen;
+    if (next.cat) state.cat = next.cat;
     renderCurrent();
     if (next.screen === "category") $("#catScroll").scrollTop = 0;
-    const from = $("#" + prev), to = $("#" + next.screen);
-    if (from === to) { to.classList.add("active"); return; }
-    const dir = ORDER[next.screen] >= ORDER[prev] ? 1 : -1;
+    if (next.screen === "splash") playVideo(); else video.pause();
+    document.title = next.screen === "splash" ? "QUU Coffee" : `QUU Coffee — ${L(UI.menuTitle)}`;
+    setThemeColor();
 
-    if (anim) {
-      gsap.set(to, { visibility: "visible", zIndex: 3 });
-      gsap.set(from, { zIndex: 2 });
-      gsap.to(from, { opacity: 0, x: -50 * dir, scale: dir > 0 ? 0.98 : 1, duration: 0.35, ease: "power2.in",
-        onComplete: () => { from.classList.remove("active"); gsap.set(from, { clearProps: "all" }); } });
-      gsap.fromTo(to, { opacity: 0, x: 60 * dir }, { opacity: 1, x: 0, duration: 0.55, ease: "expo.out", delay: 0.08,
-        onComplete: () => {
-          to.classList.add("active"); gsap.set(to, { clearProps: "transform,zIndex" });
-          if (next.screen === "category") requestAnimationFrame(() => centerChip(true));
-        } });
-      to.classList.add("active");
-      if (next.screen === "splash") introSplash(); else enterAnim(next.screen);
-    } else {
-      from.classList.remove("active"); to.classList.add("active");
-    }
-    if (next.screen === "category") requestAnimationFrame(() => centerChip(false));
+    const from = $("#" + prev), to = $("#" + next.screen);
+    if (from !== to) transition(from, to, ORDER[next.screen] >= ORDER[prev] ? 1 : -1);
+    requestAnimationFrame(() => { updateNav(to); centerChip(false); });
   }
 
   window.addEventListener("hashchange", () => go(parseHash()));
 
   /* ---------- Başlat ---------- */
-  paintStatic();
   const first = parseHash();
-  if (first.screen !== "splash") {
-    $("#splash").classList.remove("active");
-    state.screen = first.screen; state.cat = first.cat || null;
-    $("#" + first.screen).classList.add("active");
-    video.pause();
-    renderCurrent(); enterAnim(first.screen);
+  state.screen = first.screen; state.cat = first.cat || null;
+  paintStatic();
+  $$(".screen").forEach((s) => s.classList.toggle("active", s.id === first.screen));
+  renderCurrent();
+  setThemeColor();
+  if (first.screen === "splash") {
+    const splash = $("#splash");
+    splash.classList.add("intro");
+    setTimeout(() => splash.classList.remove("intro"), 1800);
+    playVideo();
   } else {
-    introSplash(); playVideo();
+    video.pause();
+    requestAnimationFrame(() => { updateNav($("#" + first.screen)); centerChip(false); });
   }
-  window.addEventListener("resize", paintLangSwitches);
-  document.fonts && document.fonts.ready.then(paintLangSwitches);
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", setThemeColor);
 })();
