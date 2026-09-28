@@ -9,6 +9,10 @@
     home:      t("Ana Sayfa", "Home", "Главная"),
     menuTitle: t("Menü", "Menu", "Меню"),
     featured:  t("Öne Çıkanlar", "Featured", "Рекомендуем"),
+    heroQ:     t("Bugün ne içmek istersin?", "What are you craving today?", "Что будете пить сегодня?"),
+    morning:   t("Günaydın", "Good morning", "Доброе утро"),
+    day:       t("İyi günler", "Good afternoon", "Добрый день"),
+    evening:   t("İyi akşamlar", "Good evening", "Добрый вечер"),
     whatsapp:  t("WhatsApp", "WhatsApp", "WhatsApp"),
     review:    t("Değerlendir", "Review", "Отзыв"),
     vat:       t("Fiyatlarımıza KDV dahildir", "All prices include VAT", "Все цены включают НДС"),
@@ -57,6 +61,10 @@
     search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
     chev: '<path d="m9 18 6-6-6-6"/>',
     chevL: '<path d="m15 18-6-6 6-6"/>',
+    arrowR: '<path d="M5 12h14M13 5l7 7-7 7"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+    moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+    starF: '<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/>',
     x: '<path d="M18 6 6 18M6 6l12 12"/>',
     wifi: '<path d="M12 20h.01M2 8.82a15 15 0 0 1 20 0M5 12.86a10 10 0 0 1 14 0M8.5 16.43a5 5 0 0 1 7 0"/>',
     ig: '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.5 6.5h.01"/>',
@@ -113,6 +121,12 @@
     document.documentElement.lang = state.lang;
     $$("[data-i18n]").forEach((el) => (el.textContent = L(UI[el.dataset.i18n])));
     $$("[data-i18n-ph]").forEach((el) => (el.placeholder = L(UI[el.dataset.i18nPh])));
+    $$("[data-i18n-label]").forEach((el) => el.setAttribute("aria-label", L(UI[el.dataset.i18nLabel])));
+    // Royal Maison Script yalnızca temel Latin harfleri içerir; diğer harflerde yedek yazı tipine geç
+    $$(".tagline").forEach((el) => el.classList.toggle("no-rm", /[^ -~]/.test(el.textContent)));
+    const hr = new Date().getHours();
+    const greet = hr >= 5 && hr < 12 ? UI.morning : hr >= 12 && hr < 18 ? UI.day : UI.evening;
+    $("#hello").innerHTML = ico(hr >= 6 && hr < 19 ? "sun" : "moon") + esc(L(greet));
     $$("[data-ico]").forEach((el) => { if (!el.dataset.painted) { el.insertAdjacentHTML("afterbegin", ico(el.dataset.ico)); el.dataset.painted = 1; } });
     $("#sheetClose").setAttribute("aria-label", L(UI.close));
     document.title = state.screen === "splash" ? "QUU Coffee" : `QUU Coffee — ${L(UI.menuTitle)}`;
@@ -148,43 +162,41 @@
 
   /* ---------- Parçalar ---------- */
   const fmt = (n) => `${n}<span class="cur">${CONFIG.currency}</span>`;
-  const alg = (k, cls = "") => `<span class="alg ${cls}" style="--c:${ALLERGENS[k].color}" title="${esc(L(ALLERGENS[k].n))}">${ico(k)}</span>`;
+  const alg = (k) => `<span class="alg" style="--c:${ALLERGENS[k].color}" title="${esc(L(ALLERGENS[k].n))}">${ico(k)}</span>`;
   const kcalTxt = (k) => `${k[0]}${k[1] ? "–" + k[1] : ""} ${L(UI.kcal)}`;
 
   function itemHTML(it) {
-    const price = it.p.length === 2
-      ? `<span class="price two"><span>${it.p[0]}</span><span>${it.p[1]}</span></span>`
-      : `<span class="price">${fmt(it.p[0])}</span>`;
-    return `<button type="button" class="row item" data-uid="${it.uid}">
-      <span class="item-main">
-        <span class="item-name">${esc(L(it.n))}${it.pop ? `<span class="badge">${esc(L(UI.popular))}</span>` : ""}</span>
-        <span class="item-desc">${esc(L(it.d))}</span>
-        <span class="item-meta"><span class="kcal">${ico("flame")}${esc(kcalTxt(it.k))}</span>${it.a.length ? `<span class="algs">${it.a.map((k) => alg(k)).join("")}</span>` : ""}</span>
+    const prices = it.p.length === 2
+      ? `<span class="pp"><small>S</small><b>${it.p[0]}</b></span><span class="pp"><small>G</small><b>${it.p[1]}</b></span>`
+      : `<span class="pp one"><b>${fmt(it.p[0])}</b></span>`;
+    return `<button type="button" class="card-item" data-uid="${it.uid}">
+      <span class="ci-main">
+        <span class="ci-name">${esc(L(it.n))}${it.pop ? `<span class="badge">${ico("starF", "fill")}${esc(L(UI.popular))}</span>` : ""}</span>
+        <span class="ci-desc">${esc(L(it.d))}</span>
+        <span class="ci-meta"><span class="kcal">${ico("flame")}${esc(kcalTxt(it.k))}</span>${it.a.length ? `<span class="algs">${it.a.map(alg).join("")}</span>` : ""}</span>
       </span>
-      ${price}
+      <span class="ci-prices">${prices}</span>
     </button>`;
   }
-
-  function listBlock(items, label) {
-    const two = items.some((i) => i.p.length === 2);
-    const cols = two ? `<span class="size-cols" aria-hidden="true"><span>${esc(L(UI.small))}</span><span>${esc(L(UI.grande))}</span></span>` : "";
-    return `<div class="list-head"><span>${esc(label)}</span>${cols}</div><div class="list">${items.map(itemHTML).join("")}</div>`;
-  }
+  const itemsBlock = (items, tone) => `<div class="items tone-${tone}">${items.map(itemHTML).join("")}</div>`;
 
   /* ---------- Menü ekranı ---------- */
   function renderMenu() {
     const feat = MENU.map((c) => c.items.find((i) => i.pop)).filter(Boolean);
-    $("#featured").innerHTML = feat.map((it) => `<button type="button" class="feat" data-uid="${it.uid}">
-        <span class="squircle lg tone-${it.cat.tone}">${ico(it.cat.icon)}</span>
-        <span class="feat-name">${esc(L(it.n))}</span>
-        <span class="feat-cat">${esc(L(it.cat.n))}</span>
-        <span class="feat-price">${fmt(it.p[0])}</span>
+    $("#featured").innerHTML = feat.map((it) => `<button type="button" class="feat tone-${it.cat.tone}" data-uid="${it.uid}">
+        <span class="feat-mark">${ico(it.cat.icon)}</span>
+        <span class="feat-ico">${ico(it.cat.icon)}</span>
+        <span>
+          <span class="feat-cat">${esc(L(it.cat.n))}</span>
+          <span class="feat-name">${esc(L(it.n))}</span>
+          <span class="feat-price">${fmt(it.p[0])}</span>
+        </span>
       </button>`).join("");
-    $("#catList").innerHTML = MENU.map((c) => `<a href="#/c/${c.id}" class="row cat-row">
-        <span class="squircle tone-${c.tone}">${ico(c.icon)}</span>
-        <span class="row-title">${esc(L(c.n))}</span>
-        <span class="row-detail">${c.items.length}</span>
-        ${ico("chev", "chev")}
+    $("#catGrid").innerHTML = MENU.map((c, i) => `<a href="#/c/${c.id}" class="tile tone-${c.tone}${MENU.length % 2 && i === MENU.length - 1 ? " wide" : ""}">
+        <span class="tile-ico">${ico(c.icon)}</span>
+        <span class="tile-go">${ico("chev")}</span>
+        <span class="tile-name">${esc(L(c.n))}</span>
+        <span class="tile-count">${c.items.length} ${esc(L(UI.items))}</span>
       </a>`).join("");
   }
 
@@ -201,7 +213,7 @@
     if (!hits.length) { res.innerHTML = `<div class="empty">${ico("search")}<p>${esc(L(UI.noResult))}</p></div>`; return; }
     const groups = new Map();
     hits.forEach((h) => { if (!groups.has(h.cat)) groups.set(h.cat, []); groups.get(h.cat).push(h); });
-    res.innerHTML = [...groups].map(([c, g]) => listBlock(g, `${L(c.n)} · ${g.length}`)).join("");
+    res.innerHTML = [...groups].map(([c, g]) => `<h3 class="res-h tone-${c.tone}">${esc(L(c.n))} · ${g.length}</h3>${itemsBlock(g, c.tone)}`).join("");
   }
   let searchTimer;
   const searchInput = $("#search");
@@ -219,7 +231,7 @@
   function renderChips() {
     $("#chips").innerHTML = MENU.map((c) => {
       const on = c === state.cat;
-      return `<a href="#/c/${c.id}" class="chip${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${esc(L(c.n))}</a>`;
+      return `<a href="#/c/${c.id}" class="chip tone-${c.tone}${on ? " on" : ""}"${on ? ' aria-current="page"' : ""}>${esc(L(c.n))}</a>`;
     }).join("");
   }
   function centerChip(smooth) {
@@ -229,25 +241,24 @@
   }
   function renderCategory() {
     const c = state.cat; if (!c) return;
+    $("#catHero").className = `hero tone-${c.tone}`;
+    $("#catIco").innerHTML = ico(c.icon);
+    $("#catMark").innerHTML = ico(c.icon);
     $("#catTitle").textContent = L(c.n);
     $("#catNavTitle").textContent = L(c.n);
-    const sub = $("#catSub");
-    sub.textContent = c.sub ? L(c.sub) : "";
-    sub.hidden = !c.sub;
+    $("#catSub").textContent = `${c.items.length} ${L(UI.items)}${c.sub ? " · " + L(c.sub) : ""}`;
     const used = new Set(c.items.flatMap((i) => i.a));
-    $("#catBody").innerHTML = listBlock(c.items, `${c.items.length} ${L(UI.items)}`) +
-      `<h2 class="group-h">${esc(L(UI.legend))}</h2>
+    $("#catBody").innerHTML = itemsBlock(c.items, c.tone) +
+      `<h2 class="sec-h">${esc(L(UI.legend))}</h2>
        <div class="legend">${Object.keys(ALLERGENS).map((k) =>
         `<span class="legend-item${used.has(k) ? "" : " dim"}">${alg(k)}${esc(L(ALLERGENS[k].n))}</span>`).join("")}</div>`;
   }
 
   /* ---------- Büyük başlık → gezinme çubuğu ---------- */
   function updateNav(screen) {
-    const sc = $(".scroll", screen), title = $(".large-title", screen), nav = $(".nav", screen);
-    if (!sc || !title) return;
-    const y = sc.scrollTop;
-    screen.classList.toggle("scrolled", y > 2);
-    screen.classList.toggle("title-in", y > title.offsetTop + title.offsetHeight - nav.offsetHeight - 4);
+    const sc = $(".scroll", screen), hero = $(".hero", screen), nav = $(".nav", screen);
+    if (!sc || !hero) return;
+    screen.classList.toggle("solid", sc.scrollTop > hero.offsetHeight - nav.offsetHeight - 12);
   }
   ["#menu", "#category"].forEach((id) => {
     const screen = $(id); let ticking = false;
@@ -261,10 +272,11 @@
   const app = $("#app"), sheet = $("#sheet"), scrim = $("#scrim");
   let sheetOpen = false, lastFocus = null, hideTimer = 0;
 
-  function openSheet(html) {
+  function openSheet(html, tone) {
     clearTimeout(hideTimer);
     if (!sheetOpen) lastFocus = document.activeElement;
     $("#sheetBody").innerHTML = html;
+    $("#sheetBody").className = `tone-${tone}`;
     sheet.hidden = false; scrim.hidden = false;
     sheet.scrollTop = 0;
     sheet.style.transitionDuration = "";
@@ -340,6 +352,8 @@
     sheet.addEventListener("touchcancel", end);
   })();
 
+  const sheetHero = (icon) => `<div class="sh-hero"><span class="sh-mark">${ico(icon)}</span><span class="sh-ico">${ico(icon)}</span></div>`;
+
   function openItem(it) {
     const two = it.p.length === 2;
     const sizes = it.p.map((p, i) => `<div class="size">
@@ -348,29 +362,30 @@
         <span class="kcal">${ico("flame")}~${it.k[i]} ${esc(L(UI.kcal))}</span>
       </div>`).join("");
     const algs = it.a.length
-      ? it.a.map((k) => `<div class="row alg-row">${alg(k, "lg")}<span class="row-title">${esc(L(ALLERGENS[k].n))}</span></div>`).join("")
-      : `<div class="row alg-row"><span class="alg lg" style="--c:var(--green)">${ico("shield")}</span><span class="row-title">${esc(L(UI.noAllergen))}</span></div>`;
+      ? it.a.map((k) => `<span class="alg-chip">${alg(k)}${esc(L(ALLERGENS[k].n))}</span>`).join("")
+      : `<span class="alg-chip"><span class="alg" style="--c:var(--green)">${ico("shield")}</span>${esc(L(UI.noAllergen))}</span>`;
     openSheet(`
-      <span class="squircle xl tone-${it.cat.tone}">${ico(it.cat.icon)}</span>
+      ${sheetHero(it.cat.icon)}
       <span class="eyebrow">${esc(L(it.cat.n))}</span>
       <h2 class="sh-title" id="sheetTitle">${esc(L(it.n))}</h2>
       <p class="sh-desc">${esc(L(it.d))}</p>
       <div class="sizes">${sizes}</div>
-      <h3 class="group-h">${esc(L(UI.allergens))}</h3>
-      <div class="list">${algs}</div>
-      <p class="foot-note">${esc(L(UI.disclaimer))}</p>`);
+      <h3 class="sh-h">${esc(L(UI.allergens))}</h3>
+      <div class="alg-chips">${algs}</div>
+      <p class="foot-note">${esc(L(UI.disclaimer))}</p>`, it.cat.tone);
   }
 
   function openWifi() {
-    const row = (label, val) => `<div class="row">
+    const row = (label, val) => `<div class="kv">
         <span class="kv-main"><small>${esc(label)}</small><b>${esc(val)}</b></span>
         <button type="button" class="btn-tinted" data-copy="${esc(val)}">${ico("copy")}${esc(L(UI.copy))}</button>
       </div>`;
     openSheet(`
-      <span class="squircle xl tone-sea">${ico("wifi")}</span>
-      <h2 class="sh-title" id="sheetTitle" style="margin-top:16px">${esc(L(UI.wifiTitle))}</h2>
+      ${sheetHero("wifi")}
+      <span class="eyebrow">QUU Coffee</span>
+      <h2 class="sh-title" id="sheetTitle">${esc(L(UI.wifiTitle))}</h2>
       <p class="sh-desc">${esc(L(UI.wifiText))}</p>
-      <div class="list">${row(L(UI.network), CONFIG.wifiName)}${row(L(UI.password), CONFIG.wifiPass)}</div>`);
+      <div class="kv-list">${row(L(UI.network), CONFIG.wifiName)}${row(L(UI.password), CONFIG.wifiPass)}</div>`, "sea");
   }
 
   /* ---------- Bildirim ---------- */
@@ -450,9 +465,9 @@
   }
 
   function setThemeColor() {
-    $("#themeColor").content = state.screen === "splash"
-      ? "#000000"
-      : getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#F2F2F7";
+    $("#themeColor").content = state.screen === "splash" ? "#000000"
+      : state.screen === "menu" ? "#0A3A5F"
+      : getComputedStyle($("#catHero")).getPropertyValue("--tc-top").trim() || "#0A3A5F";
   }
 
   function go(next) {
@@ -471,8 +486,9 @@
       if (motion()) {
         const o = { duration: 280, easing: EASE_OUT };
         $("#catBody").animate([{ opacity: 0, transform: `translateX(${18 * dir}px)` }, { opacity: 1, transform: "none" }], o);
-        $("#catTitle").animate([{ opacity: 0 }, { opacity: 1 }], o);
+        $$("#catHero > *").forEach((el) => el.animate([{ opacity: 0, transform: `translateX(${12 * dir}px)` }, { opacity: 1, transform: "none" }], o));
       }
+      setThemeColor();
       return;
     }
 
@@ -507,5 +523,4 @@
     video.pause();
     requestAnimationFrame(() => { updateNav($("#" + first.screen)); centerChip(false); });
   }
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", setThemeColor);
 })();

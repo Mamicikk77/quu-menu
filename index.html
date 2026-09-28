@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" id="themeColor" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="only light" />
   <meta name="description" content="QUU Coffee dijital menü — Türkçe, English, Русский" />
   <title>QUU Coffee</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -30,12 +30,12 @@
       <h1 class="brand-name intro" style="--d:80">QUU</h1>
       <p class="brand-sub intro" style="--d:200">COFFEE</p>
       <p class="tagline intro" style="--d:320" data-i18n="tagline"></p>
-      <a href="#/menu" class="btn-primary intro" style="--d:440"><span data-i18n="viewMenu"></span><span data-ico="chev"></span></a>
+      <a href="#/menu" class="btn-primary intro" style="--d:440"><span data-i18n="viewMenu"></span><span class="cta-arrow" data-ico="arrowR"></span></a>
       <nav class="actions intro" style="--d:540" aria-label="Links">
-        <a class="action glass" id="qWa" target="_blank" rel="noopener"><span data-ico="wa"></span><span class="action-l" data-i18n="whatsapp"></span></a>
-        <a class="action glass" id="qGo" target="_blank" rel="noopener"><span data-ico="star"></span><span class="action-l" data-i18n="review"></span></a>
-        <a class="action glass" id="qIg" target="_blank" rel="noopener"><span data-ico="ig"></span><span class="action-l">Instagram</span></a>
-        <button class="action glass" id="qWifi" type="button"><span data-ico="wifi"></span><span class="action-l">Wi-Fi</span></button>
+        <a class="action glass" id="qWa" target="_blank" rel="noopener"><span class="action-ico wa" data-ico="wa"></span><span class="action-l" data-i18n="whatsapp"></span></a>
+        <a class="action glass" id="qGo" target="_blank" rel="noopener"><span class="action-ico go" data-ico="star"></span><span class="action-l" data-i18n="review"></span></a>
+        <a class="action glass" id="qIg" target="_blank" rel="noopener"><span class="action-ico ig" data-ico="ig"></span><span class="action-l">Instagram</span></a>
+        <button class="action glass" id="qWifi" type="button"><span class="action-ico wf" data-ico="wifi"></span><span class="action-l">Wi-Fi</span></button>
       </nav>
       <p class="vat intro" style="--d:640" data-i18n="vat"></p>
     </div>
@@ -44,41 +44,53 @@
   <!-- ================= MENÜ ================= -->
   <section id="menu" class="screen" aria-label="Menu">
     <header class="nav">
-      <a href="#/" class="nav-back"><span data-ico="chevL"></span><span data-i18n="home"></span></a>
-      <span class="nav-title" data-i18n="menuTitle"></span>
+      <a href="#/" class="nav-btn" data-ico="chevL" data-i18n-label="home"></a>
+      <span class="nav-title nav-brand">QUU Coffee</span>
       <div class="seg seg-compact" data-seg></div>
     </header>
     <main class="scroll" id="menuScroll">
-      <h1 class="large-title" data-i18n="menuTitle"></h1>
-      <label class="search">
-        <span data-ico="search"></span>
-        <input type="search" id="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="searchPh" />
-        <button class="search-clear" id="searchClear" type="button" data-ico="x" aria-label="Clear" hidden></button>
-      </label>
-      <div id="menuNormal">
-        <h2 class="group-h" data-i18n="featured"></h2>
-        <div class="featured" id="featured"></div>
-        <h2 class="group-h" data-i18n="categories"></h2>
-        <div class="list" id="catList"></div>
+      <div class="hero tone-aegean">
+        <span class="hero-mark" data-ico="coffee"></span>
+        <p class="hero-hello" id="hello"></p>
+        <h1 class="hero-title" data-i18n="heroQ"></h1>
+        <label class="search">
+          <span data-ico="search"></span>
+          <input type="search" id="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="searchPh" />
+          <button class="search-clear" id="searchClear" type="button" data-ico="x" aria-label="Clear" hidden></button>
+        </label>
       </div>
-      <div id="menuResults" hidden></div>
-      <p class="foot-note" data-i18n="disclaimer"></p>
+      <div class="content">
+        <div id="menuNormal">
+          <h2 class="sec-h" data-i18n="featured"></h2>
+          <div class="featured" id="featured"></div>
+          <h2 class="sec-h" data-i18n="categories"></h2>
+          <div class="tiles" id="catGrid"></div>
+        </div>
+        <div id="menuResults" hidden></div>
+        <p class="foot-note" data-i18n="disclaimer"></p>
+      </div>
     </main>
   </section>
 
   <!-- ================= KATEGORİ ================= -->
   <section id="category" class="screen" aria-label="Category">
     <header class="nav">
-      <a href="#/menu" class="nav-back"><span data-ico="chevL"></span><span data-i18n="menuTitle"></span></a>
+      <a href="#/menu" class="nav-btn" data-ico="chevL" data-i18n-label="menuTitle"></a>
       <span class="nav-title" id="catNavTitle"></span>
       <div class="seg seg-compact" data-seg></div>
     </header>
     <main class="scroll" id="catScroll">
-      <h1 class="large-title" id="catTitle"></h1>
-      <p class="large-sub" id="catSub" hidden></p>
+      <div class="hero" id="catHero">
+        <span class="hero-mark" id="catMark"></span>
+        <span class="hero-ico" id="catIco"></span>
+        <h1 class="hero-title" id="catTitle"></h1>
+        <p class="hero-sub" id="catSub"></p>
+      </div>
       <nav class="chips" id="chips" aria-label="Categories"></nav>
-      <div id="catBody"></div>
-      <p class="foot-note" data-i18n="disclaimer"></p>
+      <div class="content">
+        <div id="catBody"></div>
+        <p class="foot-note" data-i18n="disclaimer"></p>
+      </div>
     </main>
   </section>
 
