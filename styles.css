@@ -52,6 +52,21 @@
 .tone-bougain    { --tone: linear-gradient(150deg, #AE1F5B, #E45E97); --tc: #C22D6C; --tc-top: #AE1F5B; --tc-bg: #FCE6EF; --tc-ink: #911A4C; --tc-shadow: rgba(174, 31, 91, .5); }
 .tone-terracotta { --tone: linear-gradient(150deg, #A44326, #DE8555); --tc: #B6532E; --tc-top: #A44326; --tc-bg: #FAE9DF; --tc-ink: #85331A; --tc-shadow: rgba(164, 67, 38, .5); }
 
+/* Kategori renkleri: her kategori kendi ürününün rengini taşır */
+.tone-espresso   { --tone: linear-gradient(150deg, #3B2215, #7B4A2B); --tc: #6A3E22; --tc-top: #3B2215; --tc-bg: #F3EAE2; --tc-ink: #4A2A16; --tc-shadow: rgba(59,34,21, .5); }
+.tone-icedcoffee { --tone: linear-gradient(150deg, #4E3020, #A0714A); --tc: #7A5134; --tc-top: #4E3020; --tc-bg: #F4ECE3; --tc-ink: #553520; --tc-shadow: rgba(78,48,32, .5); }
+.tone-latte      { --tone: linear-gradient(150deg, #8A5A30, #C9985F); --tc: #96673B; --tc-top: #8A5A30; --tc-bg: #F7EEE2; --tc-ink: #6B4522; --tc-shadow: rgba(138,90,48, .5); }
+.tone-matcha     { --tone: linear-gradient(150deg, #3F6A22, #8DB456); --tc: #4F7D2C; --tc-top: #3F6A22; --tc-bg: #EDF4E2; --tc-ink: #35561C; --tc-shadow: rgba(63,106,34, .5); }
+.tone-sunset     { --tone: linear-gradient(150deg, #6B3219, #DB7F2A); --tc: #A8521E; --tc-top: #6B3219; --tc-bg: #FBEBDD; --tc-ink: #7A3A12; --tc-shadow: rgba(107,50,25, .5); }
+.tone-berry      { --tone: linear-gradient(150deg, #A81E57, #EC6A9A); --tc: #C22D6C; --tc-top: #A81E57; --tc-bg: #FCE6EF; --tc-ink: #911A4C; --tc-shadow: rgba(168,30,87, .5); }
+.tone-chocolate  { --tone: linear-gradient(150deg, #3E2218, #8C5840); --tc: #6E4230; --tc-top: #3E2218; --tc-bg: #F2E8E2; --tc-ink: #4A2A1C; --tc-shadow: rgba(62,34,24, .5); }
+.tone-turkishtea { --tone: linear-gradient(150deg, #7F2410, #C9642C); --tc: #A5421C; --tc-top: #7F2410; --tc-bg: #FAE8DD; --tc-ink: #7A2A10; --tc-shadow: rgba(127,36,16, .5); }
+.tone-lemon      { --tone: linear-gradient(150deg, #8F6300, #D8A11C); --tc: #9A6C00; --tc-top: #8F6300; --tc-bg: #FBF3D9; --tc-ink: #6E4E00; --tc-shadow: rgba(143,99,0, .5); }
+.tone-strawberry { --tone: linear-gradient(150deg, #B23E6B, #EE8FAE); --tc: #C24F7B; --tc-top: #B23E6B; --tc-bg: #FDEAF1; --tc-ink: #8E2B53; --tc-shadow: rgba(178,62,107, .5); }
+.tone-taro       { --tone: linear-gradient(150deg, #553585, #9C7CCB); --tc: #6A48A0; --tc-top: #553585; --tc-bg: #EFEAF8; --tc-ink: #46296F; --tc-shadow: rgba(85,53,133, .5); }
+.tone-waffle     { --tone: linear-gradient(150deg, #91561A, #D59B46); --tc: #A0662A; --tc-top: #91561A; --tc-bg: #F9EEDC; --tc-ink: #6E3F10; --tc-shadow: rgba(145,86,26, .5); }
+.tone-crema      { --tone: linear-gradient(150deg, #5A4538, #A48B78); --tc: #6F5747; --tc-top: #5A4538; --tc-bg: #F3EEEA; --tc-ink: #4A382D; --tc-shadow: rgba(90,69,56, .5); }
+
 /* ---------- Temel ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; height: 100%; }

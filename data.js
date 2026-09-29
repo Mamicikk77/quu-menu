@@ -54,7 +54,7 @@ const waffleD = (tr, en, ru) => tr
 
 const MENU = [
   {
-    id: "coffees", icon: "coffee", tone: "navy",
+    id: "coffees", icon: "coffee", tone: "espresso",
     n: t("Kahveler", "Coffees", "Кофе"),
     items: [
       { n: t("Espresso", "Espresso", "Эспрессо"), d: D.espresso, p: [100, 120], k: [5, 10], a: [] },
@@ -68,7 +68,7 @@ const MENU = [
     ],
   },
   {
-    id: "ice", icon: "snow", tone: "sea",
+    id: "ice", icon: "snow", tone: "icedcoffee",
     n: t("Soğuk Kahveler", "Iced Coffees", "Холодный кофе"),
     items: [
       { n: t("Ice Espresso", "Iced Espresso", "Айс эспрессо"), d: iced(D.espresso), p: [100, 120], k: [5, 10], a: [] },
@@ -82,7 +82,7 @@ const MENU = [
     ],
   },
   {
-    id: "lattes", icon: "glass", tone: "sand",
+    id: "lattes", icon: "glass", tone: "latte",
     n: t("Aromalı Latteler", "Flavoured Lattes", "Ароматные латте"),
     items: [
       { n: t("Caramel Latte", "Caramel Latte", "Карамельный латте"), d: latteD("karamel şurubu", "caramel syrup", "карамельный сироп"), p: [190, 210], k: [240, 300], a: ["milk"], pop: 1 },
@@ -98,7 +98,7 @@ const MENU = [
     ],
   },
   {
-    id: "matcha", icon: "leaf", tone: "olive",
+    id: "matcha", icon: "leaf", tone: "matcha",
     n: t("Matcha", "Matcha", "Матча"),
     items: [
       { n: t("Matcha Latte", "Matcha Latte", "Матча латте"), d: t("Japon matcha çayı ve kadifemsi süt.", "Japanese matcha tea with silky milk.", "Японский чай матча с нежным молоком."), p: [200, 220], k: [160, 210], a: ["milk"], pop: 1 },
@@ -111,7 +111,7 @@ const MENU = [
     ],
   },
   {
-    id: "signatures", icon: "star", tone: "bougain",
+    id: "signatures", icon: "star", tone: "sunset",
     n: t("Coffee Signatures", "Coffee Signatures", "Фирменный кофе"),
     items: [
       { n: t("QUU Sunshine", "QUU Sunshine", "QUU Sunshine"), d: t("Portakal suyu üzerinde espresso, bol buz.", "Espresso over orange juice and ice.", "Эспрессо на апельсиновом соке со льдом."), p: [200, 220], k: [90, 120], a: [], pop: 1 },
@@ -121,7 +121,7 @@ const MENU = [
     ],
   },
   {
-    id: "fresh", icon: "citrus", tone: "bougain",
+    id: "fresh", icon: "citrus", tone: "berry",
     n: t("Signature Fresh", "Signature Fresh", "Фирменные освежающие"),
     items: [
       { n: t("QUU Pink", "QUU Pink", "QUU Pink"), d: t("Çilek ve ahududu ile pembe ferahlık.", "Pink refresher with strawberry and raspberry.", "Розовый освежающий напиток с клубникой и малиной."), p: [190, 200], k: [140, 180], a: [], pop: 1 },
@@ -132,7 +132,7 @@ const MENU = [
     ],
   },
   {
-    id: "hot", icon: "mug", tone: "terracotta",
+    id: "hot", icon: "mug", tone: "chocolate",
     n: t("Sıcak İçecekler", "Hot Drinks", "Горячие напитки"),
     items: [
       { n: t("Sıcak Çikolata", "Hot Chocolate", "Горячий шоколад"), d: t("Kremamsı sütlü sıcak çikolata.", "Creamy hot chocolate made with milk.", "Сливочный горячий шоколад на молоке."), p: [185, 195], k: [330, 400], a: ["milk", "soy"], pop: 1 },
@@ -144,7 +144,7 @@ const MENU = [
     ],
   },
   {
-    id: "tea", icon: "tea", tone: "terracotta",
+    id: "tea", icon: "tea", tone: "turkishtea",
     n: t("Çay & Bitki Çayları", "Tea & Herbal Teas", "Чай и травяные чаи"),
     items: [
       { n: t("Çay", "Turkish Tea", "Турецкий чай"), d: t("Taze demlenmiş Türk çayı.", "Freshly brewed Turkish black tea.", "Свежезаваренный турецкий чёрный чай."), p: [90, 100], k: [2, 3], a: [], pop: 1 },
@@ -159,7 +159,7 @@ const MENU = [
     ],
   },
   {
-    id: "lemonade", icon: "glass", tone: "sea",
+    id: "lemonade", icon: "glass", tone: "lemon",
     n: t("Limonata & Frozen", "Lemonade & Frozen", "Лимонад и фрозен"),
     items: [
       { n: t("Çilekli Limonata", "Strawberry Lemonade", "Клубничный лимонад"), d: t("Ev yapımı limonata ve çilek.", "Homemade lemonade with strawberry.", "Домашний лимонад с клубникой."), p: [180, 190], k: [150, 190], a: [], pop: 1 },
@@ -172,7 +172,7 @@ const MENU = [
     ],
   },
   {
-    id: "milkshake", icon: "shake", tone: "bougain",
+    id: "milkshake", icon: "shake", tone: "strawberry",
     n: t("Milkshake", "Milkshakes", "Милкшейки"),
     items: [
       { n: t("Çilekli Milkshake", "Strawberry Milkshake", "Клубничный милкшейк"), d: t("Dondurma, süt ve çilek.", "Ice cream, milk and strawberry.", "Мороженое, молоко и клубника."), p: [200, 220], k: [380, 480], a: ["milk"], pop: 1 },
@@ -183,7 +183,7 @@ const MENU = [
     ],
   },
   {
-    id: "bubble", icon: "bubble", tone: "olive",
+    id: "bubble", icon: "bubble", tone: "taro",
     n: t("Bubble Tea", "Bubble Tea", "Бабл-ти"),
     items: [
       { n: t("Çilekli Bubble Tea", "Strawberry Bubble Tea", "Клубничный бабл-ти"), d: t("Çilekli çay ve patlayan boba topları.", "Strawberry tea with popping boba pearls.", "Клубничный чай с лопающимися шариками бобы."), p: [220, 240], k: [280, 350], a: [], pop: 1 },
@@ -192,7 +192,7 @@ const MENU = [
     ],
   },
   {
-    id: "waffle", icon: "waffle", tone: "sand",
+    id: "waffle", icon: "waffle", tone: "waffle",
     n: t("QUU Waffle", "QUU Waffle", "QUU Вафли"),
     sub: t("Her lokmada mutluluk!", "Happiness in every bite!", "Счастье в каждом кусочке!"),
     items: [
@@ -204,7 +204,7 @@ const MENU = [
     ],
   },
   {
-    id: "extras", icon: "plus", tone: "navy",
+    id: "extras", icon: "plus", tone: "crema",
     n: t("Ekstralar", "Extras", "Дополнительно"),
     items: [
       { n: t("Ekstra Espresso Shot", "Extra Espresso Shot", "Дополнительный шот эспрессо"), d: t("İçeceğinize bir shot daha.", "One more shot for your drink.", "Ещё один шот в ваш напиток."), p: [50], k: [5], a: [] },
