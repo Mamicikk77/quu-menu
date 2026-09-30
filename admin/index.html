@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0A3A5F" />
+  <title>QUU Coffee — Yönetim Paneli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ================= GİRİŞ ================= -->
+  <section id="login" class="login" hidden>
+    <div class="login-card">
+      <div class="brand"><span class="brand-q">QUU</span><span class="brand-s">COFFEE · YÖNETİM</span></div>
+      <h1>Menü Yönetim Paneli</h1>
+      <p class="muted">Ürünleri, fiyatları, fotoğrafları ve alerjenleri buradan düzenleyin. <b>Yayınla</b>'ya bastığınızda değişiklikler yaklaşık 1 dakika içinde QR menüde görünür.</p>
+
+      <form id="loginForm" autocomplete="off">
+        <label class="field">
+          <span class="field-l">GitHub erişim anahtarı (token)</span>
+          <input type="password" id="tokenInput" placeholder="github_pat_…" required spellcheck="false" autocapitalize="off" />
+        </label>
+        <label class="check"><input type="checkbox" id="rememberInput" checked /> <span>Bu cihazda beni hatırla</span></label>
+        <p class="form-err" id="loginErr" role="alert" hidden></p>
+        <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Giriş yap</button>
+      </form>
+
+      <details class="help">
+        <summary>Erişim anahtarını nasıl alırım?</summary>
+        <ol>
+          <li><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained token oluştur</a> sayfasını açın.</li>
+          <li><b>Token name:</b> “QUU Menü Admin”, <b>Expiration:</b> istediğiniz süre.</li>
+          <li><b>Repository access:</b> “Only select repositories” → <b id="repoName">quu-menu</b>.</li>
+          <li><b>Permissions → Repository permissions → Contents:</b> “Read and write”.</li>
+          <li><b>Generate token</b>'a basın, çıkan anahtarı kopyalayıp yukarıya yapıştırın.</li>
+        </ol>
+        <p class="muted small">Anahtar yalnızca bu cihazın tarayıcısında saklanır, hiçbir yere gönderilmez (sadece GitHub'a).</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= PANEL ================= -->
+  <div id="panel" hidden>
+    <header class="topbar">
+      <div class="brand small"><span class="brand-q">QUU</span><span class="brand-s">YÖNETİM</span></div>
+      <div class="topbar-actions">
+        <a class="btn btn-ghost" id="previewLink" href="../" target="_blank" rel="noopener" title="Menüyü yeni sekmede aç">
+          <svg viewBox="0 0 24 24" class="i"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span class="hide-sm">Menüyü gör</span>
+        </a>
+        <button class="btn btn-ghost" id="discardBtn" type="button" hidden title="Kaydedilmemiş değişiklikleri geri al">
+          <svg viewBox="0 0 24 24" class="i"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span class="hide-sm">Geri al</span>
+        </button>
+        <button class="btn btn-primary" id="publishBtn" type="button" disabled>
+          <svg viewBox="0 0 24 24" class="i"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 21h14"/></svg>
+          <span>Yayınla</span><span class="count" id="dirtyCount" hidden>0</span>
+        </button>
+        <button class="btn btn-icon" id="logoutBtn" type="button" title="Çıkış yap" aria-label="Çıkış yap">
+          <svg viewBox="0 0 24 24" class="i"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab on" data-tab="products" role="tab" aria-selected="true">Ürünler</button>
+      <button class="tab" data-tab="categories" role="tab" aria-selected="false">Kategoriler</button>
+      <button class="tab" data-tab="settings" role="tab" aria-selected="false">Ayarlar</button>
+    </nav>
+
+    <main class="main">
+      <!-- Ürünler -->
+      <section class="view" id="view-products">
+        <div class="toolbar">
+          <label class="search">
+            <svg viewBox="0 0 24 24" class="i"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input type="search" id="prodSearch" placeholder="Ürün ara…" autocomplete="off" />
+          </label>
+          <button class="btn btn-primary" id="addItemBtn" type="button">
+            <svg viewBox="0 0 24 24" class="i"><path d="M12 5v14M5 12h14"/></svg><span>Yeni ürün</span>
+          </button>
+        </div>
+        <div class="cat-chips" id="catChips"></div>
+        <div class="list" id="itemList"></div>
+      </section>
+
+      <!-- Kategoriler -->
+      <section class="view" id="view-categories" hidden>
+        <div class="toolbar">
+          <p class="muted">Sırayı oklarla değiştirin. Menüde bu sırayla görünür.</p>
+          <button class="btn btn-primary" id="addCatBtn" type="button">
+            <svg viewBox="0 0 24 24" class="i"><path d="M12 5v14M5 12h14"/></svg><span>Yeni kategori</span>
+          </button>
+        </div>
+        <div class="list" id="catList"></div>
+      </section>
+
+      <!-- Ayarlar -->
+      <section class="view" id="view-settings" hidden>
+        <form class="card form" id="settingsForm">
+          <h2>İşletme bilgileri</h2>
+          <label class="field"><span class="field-l">WhatsApp numarası</span>
+            <input name="whatsapp" inputmode="tel" placeholder="905xxxxxxxxx" />
+            <span class="hint">Ülke koduyla, başında + ve boşluk olmadan. Örn: 905321234567</span></label>
+          <label class="field"><span class="field-l">Instagram linki</span><input name="instagram" type="url" placeholder="https://www.instagram.com/…" /></label>
+          <label class="field"><span class="field-l">Google değerlendirme / Maps linki</span><input name="googleReview" type="url" /></label>
+          <div class="grid2">
+            <label class="field"><span class="field-l">Wi-Fi ağ adı</span><input name="wifiName" /></label>
+            <label class="field"><span class="field-l">Wi-Fi şifresi</span><input name="wifiPass" /></label>
+          </div>
+          <label class="field narrow"><span class="field-l">Para birimi</span><input name="currency" maxlength="4" /></label>
+          <p class="hint">Değişiklikler anında taslağa eklenir, <b>Yayınla</b> ile menüye aktarılır.</p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- ================= ÜRÜN DÜZENLEYİCİ ================= -->
+  <dialog class="modal" id="itemModal" aria-labelledby="itemModalTitle">
+    <form method="dialog" class="modal-inner" id="itemForm" novalidate>
+      <header class="modal-head">
+        <h2 id="itemModalTitle">Ürün</h2>
+        <button type="button" class="btn btn-icon" data-close aria-label="Kapat"><svg viewBox="0 0 24 24" class="i"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </header>
+      <div class="modal-body">
+        <div class="photo-box">
+          <div class="photo" id="photoPreview"><span class="photo-empty">Fotoğraf yok</span></div>
+          <div class="photo-actions">
+            <label class="btn btn-soft">
+              <svg viewBox="0 0 24 24" class="i"><rect x="3" y="5" width="18" height="15" rx="3"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>
+              <span id="photoPickLabel">Fotoğraf seç</span>
+              <input type="file" id="photoInput" accept="image/*" hidden />
+            </label>
+            <button type="button" class="btn btn-ghost danger" id="photoRemove" hidden>Kaldır</button>
+            <p class="hint">Fotoğraf otomatik küçültülür (en fazla 1000 px). Kare ya da yatay çekim önerilir.</p>
+          </div>
+        </div>
+
+        <label class="field"><span class="field-l">Kategori</span><select id="fCat"></select></label>
+
+        <fieldset class="lang-group">
+          <legend>Ürün adı</legend>
+          <label class="lang-row"><span class="flag">TR</span><input id="fNameTr" required placeholder="Türkçe ad (zorunlu)" /></label>
+          <label class="lang-row"><span class="flag">EN</span><input id="fNameEn" placeholder="English name" /></label>
+          <label class="lang-row"><span class="flag">RU</span><input id="fNameRu" placeholder="Русское название" /></label>
+        </fieldset>
+
+        <fieldset class="lang-group">
+          <legend>Açıklama</legend>
+          <label class="lang-row"><span class="flag">TR</span><textarea id="fDescTr" rows="2" placeholder="Türkçe açıklama"></textarea></label>
+          <label class="lang-row"><span class="flag">EN</span><textarea id="fDescEn" rows="2" placeholder="English description"></textarea></label>
+          <label class="lang-row"><span class="flag">RU</span><textarea id="fDescRu" rows="2" placeholder="Русское описание"></textarea></label>
+          <p class="hint">EN/RU boş bırakılırsa menüde Türkçe metin gösterilir.</p>
+        </fieldset>
+
+        <fieldset class="lang-group">
+          <legend>Fiyat & kalori</legend>
+          <div class="seg" id="fSizeMode" role="radiogroup">
+            <button type="button" data-mode="2" role="radio">Small / Grande</button>
+            <button type="button" data-mode="1" role="radio">Tek fiyat</button>
+          </div>
+          <div class="price-grid" id="priceGrid"></div>
+        </fieldset>
+
+        <fieldset class="lang-group">
+          <legend>Alerjenler</legend>
+          <div class="alg-grid" id="fAlg"></div>
+        </fieldset>
+
+        <fieldset class="lang-group">
+          <legend>Durum</legend>
+          <label class="switch"><input type="checkbox" id="fPop" /><span class="sw"></span><span><b>Favori</b><small>Menüde “Öne çıkanlar”da ve “Favori” rozetiyle gösterilir</small></span></label>
+          <label class="switch"><input type="checkbox" id="fSold" /><span class="sw"></span><span><b>Tükendi</b><small>Menüde soluk ve “Tükendi” etiketiyle görünür</small></span></label>
+          <label class="switch"><input type="checkbox" id="fHidden" /><span class="sw"></span><span><b>Menüde gizle</b><small>Müşteriler bu ürünü görmez</small></span></label>
+        </fieldset>
+        <p class="form-err" id="itemErr" role="alert" hidden></p>
+      </div>
+      <footer class="modal-foot">
+        <button type="button" class="btn btn-ghost danger" id="itemDelete">Ürünü sil</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-ghost" data-close>Vazgeç</button>
+        <button type="submit" class="btn btn-primary" id="itemSave">Kaydet</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- ================= KATEGORİ DÜZENLEYİCİ ================= -->
+  <dialog class="modal" id="catModal" aria-labelledby="catModalTitle">
+    <form method="dialog" class="modal-inner" id="catForm" novalidate>
+      <header class="modal-head">
+        <h2 id="catModalTitle">Kategori</h2>
+        <button type="button" class="btn btn-icon" data-close aria-label="Kapat"><svg viewBox="0 0 24 24" class="i"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </header>
+      <div class="modal-body">
+        <div class="cat-preview" id="catPreview"></div>
+        <fieldset class="lang-group">
+          <legend>Kategori adı</legend>
+          <label class="lang-row"><span class="flag">TR</span><input id="cNameTr" required placeholder="Türkçe ad (zorunlu)" /></label>
+          <label class="lang-row"><span class="flag">EN</span><input id="cNameEn" placeholder="English name" /></label>
+          <label class="lang-row"><span class="flag">RU</span><input id="cNameRu" placeholder="Русское название" /></label>
+        </fieldset>
+        <fieldset class="lang-group">
+          <legend>Alt başlık <small class="muted">(isteğe bağlı)</small></legend>
+          <label class="lang-row"><span class="flag">TR</span><input id="cSubTr" /></label>
+          <label class="lang-row"><span class="flag">EN</span><input id="cSubEn" /></label>
+          <label class="lang-row"><span class="flag">RU</span><input id="cSubRu" /></label>
+        </fieldset>
+        <fieldset class="lang-group">
+          <legend>Renk</legend>
+          <div class="tone-grid" id="cTone"></div>
+        </fieldset>
+        <fieldset class="lang-group">
+          <legend>Simge</legend>
+          <div class="icon-grid" id="cIcon"></div>
+        </fieldset>
+        <fieldset class="lang-group">
+          <label class="switch"><input type="checkbox" id="cHidden" /><span class="sw"></span><span><b>Kategoriyi gizle</b><small>Kategori ve içindeki tüm ürünler menüde görünmez</small></span></label>
+        </fieldset>
+        <p class="form-err" id="catErr" role="alert" hidden></p>
+      </div>
+      <footer class="modal-foot">
+        <button type="button" class="btn btn-ghost danger" id="catDelete">Kategoriyi sil</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-ghost" data-close>Vazgeç</button>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Yayınlama ilerlemesi -->
+  <dialog class="modal small" id="busyModal">
+    <div class="modal-inner busy">
+      <span class="spinner" aria-hidden="true"></span>
+      <p id="busyText">Yayınlanıyor…</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="loading" id="loading"><span class="spinner"></span><p>Menü yükleniyor…</p></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

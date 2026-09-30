@@ -1,0 +1,2103 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-30T01:06:04.651Z",
+  "config": {
+    "whatsapp": "905000000000",
+    "instagram": "https://www.instagram.com/quucoffee/",
+    "googleReview": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x14c363ef7474ea9d:0x45985c3bac597629",
+    "wifiName": "QUU_Coffee",
+    "wifiPass": "sifre1234",
+    "currency": "₺"
+  },
+  "allergens": {
+    "gluten": {
+      "color": "#B7791F",
+      "n": {
+        "tr": "Gluten",
+        "en": "Gluten",
+        "ru": "Глютен"
+      }
+    },
+    "milk": {
+      "color": "#2B6CB0",
+      "n": {
+        "tr": "Süt / Laktoz",
+        "en": "Milk / Lactose",
+        "ru": "Молоко / лактоза"
+      }
+    },
+    "egg": {
+      "color": "#C98A12",
+      "n": {
+        "tr": "Yumurta",
+        "en": "Egg",
+        "ru": "Яйцо"
+      }
+    },
+    "nuts": {
+      "color": "#8B5A2B",
+      "n": {
+        "tr": "Sert kabuklu yemiş",
+        "en": "Tree nuts",
+        "ru": "Орехи"
+      }
+    },
+    "soy": {
+      "color": "#5F7F1F",
+      "n": {
+        "tr": "Soya",
+        "en": "Soy",
+        "ru": "Соя"
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": "coffees",
+      "icon": "coffee",
+      "tone": "espresso",
+      "n": {
+        "tr": "Kahveler",
+        "en": "Coffees",
+        "ru": "Кофе"
+      },
+      "items": [
+        {
+          "id": "espresso",
+          "n": {
+            "tr": "Espresso",
+            "en": "Espresso",
+            "ru": "Эспрессо"
+          },
+          "d": {
+            "tr": "Yoğun ve aromatik İtalyan usulü espresso.",
+            "en": "Rich, aromatic Italian-style espresso.",
+            "ru": "Насыщенный ароматный эспрессо по-итальянски."
+          },
+          "p": [
+            100,
+            120
+          ],
+          "k": [
+            5,
+            10
+          ],
+          "a": []
+        },
+        {
+          "id": "americano",
+          "n": {
+            "tr": "Americano",
+            "en": "Americano",
+            "ru": "Американо"
+          },
+          "d": {
+            "tr": "Espresso ve sıcak su.",
+            "en": "Espresso topped with hot water.",
+            "ru": "Эспрессо с горячей водой."
+          },
+          "p": [
+            175,
+            185
+          ],
+          "k": [
+            10,
+            15
+          ],
+          "a": []
+        },
+        {
+          "id": "cappuccino",
+          "n": {
+            "tr": "Cappuccino",
+            "en": "Cappuccino",
+            "ru": "Капучино"
+          },
+          "d": {
+            "tr": "Espresso, sıcak süt ve yoğun süt köpüğü.",
+            "en": "Espresso, steamed milk and thick foam.",
+            "ru": "Эспрессо, горячее молоко и густая пенка."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            110,
+            150
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "latte",
+          "n": {
+            "tr": "Latte",
+            "en": "Latte",
+            "ru": "Латте"
+          },
+          "d": {
+            "tr": "Espresso ve bol kadifemsi süt.",
+            "en": "Espresso with plenty of silky milk.",
+            "ru": "Эспрессо с большим количеством нежного молока."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            150,
+            200
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "flat-white",
+          "n": {
+            "tr": "Flat White",
+            "en": "Flat White",
+            "ru": "Флэт уайт"
+          },
+          "d": {
+            "tr": "Çift shot espresso ve ince mikro köpük.",
+            "en": "Double espresso with velvety microfoam.",
+            "ru": "Двойной эспрессо с бархатной микропеной."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            120,
+            160
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "mocha",
+          "n": {
+            "tr": "Mocha",
+            "en": "Mocha",
+            "ru": "Мокко"
+          },
+          "d": {
+            "tr": "Espresso, çikolata sos ve süt.",
+            "en": "Espresso, chocolate sauce and milk.",
+            "ru": "Эспрессо, шоколадный соус и молоко."
+          },
+          "p": [
+            200,
+            210
+          ],
+          "k": [
+            260,
+            330
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ]
+        },
+        {
+          "id": "white-mocha",
+          "n": {
+            "tr": "White Mocha",
+            "en": "White Mocha",
+            "ru": "Белый мокко"
+          },
+          "d": {
+            "tr": "Espresso, beyaz çikolata sos ve süt.",
+            "en": "Espresso, white chocolate sauce and milk.",
+            "ru": "Эспрессо, соус из белого шоколада и молоко."
+          },
+          "p": [
+            200,
+            210
+          ],
+          "k": [
+            300,
+            380
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ]
+        },
+        {
+          "id": "filter-coffee",
+          "n": {
+            "tr": "Filtre Kahve",
+            "en": "Filter Coffee",
+            "ru": "Фильтр-кофе"
+          },
+          "d": {
+            "tr": "Günlük taze demlenen filtre kahve.",
+            "en": "Freshly brewed filter coffee.",
+            "ru": "Свежесваренный фильтр-кофе."
+          },
+          "p": [
+            175,
+            185
+          ],
+          "k": [
+            5,
+            10
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "ice",
+      "icon": "snow",
+      "tone": "icedcoffee",
+      "n": {
+        "tr": "Soğuk Kahveler",
+        "en": "Iced Coffees",
+        "ru": "Холодный кофе"
+      },
+      "items": [
+        {
+          "id": "iced-espresso",
+          "n": {
+            "tr": "Ice Espresso",
+            "en": "Iced Espresso",
+            "ru": "Айс эспрессо"
+          },
+          "d": {
+            "tr": "Yoğun ve aromatik İtalyan usulü espresso, bol buz ile.",
+            "en": "Rich, aromatic Italian-style espresso, served over ice.",
+            "ru": "Насыщенный ароматный эспрессо по-итальянски, со льдом."
+          },
+          "p": [
+            100,
+            120
+          ],
+          "k": [
+            5,
+            10
+          ],
+          "a": []
+        },
+        {
+          "id": "iced-americano",
+          "n": {
+            "tr": "Ice Americano",
+            "en": "Iced Americano",
+            "ru": "Айс американо"
+          },
+          "d": {
+            "tr": "Espresso ve sıcak su, bol buz ile.",
+            "en": "Espresso topped with hot water, served over ice.",
+            "ru": "Эспрессо с горячей водой, со льдом."
+          },
+          "p": [
+            175,
+            185
+          ],
+          "k": [
+            10,
+            15
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "iced-cappuccino",
+          "n": {
+            "tr": "Ice Cappuccino",
+            "en": "Iced Cappuccino",
+            "ru": "Айс капучино"
+          },
+          "d": {
+            "tr": "Espresso, sıcak süt ve yoğun süt köpüğü, bol buz ile.",
+            "en": "Espresso, steamed milk and thick foam, served over ice.",
+            "ru": "Эспрессо, горячее молоко и густая пенка, со льдом."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            100,
+            140
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "iced-latte",
+          "n": {
+            "tr": "Ice Latte",
+            "en": "Iced Latte",
+            "ru": "Айс латте"
+          },
+          "d": {
+            "tr": "Espresso ve bol kadifemsi süt, bol buz ile.",
+            "en": "Espresso with plenty of silky milk, served over ice.",
+            "ru": "Эспрессо с большим количеством нежного молока, со льдом."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            130,
+            180
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "iced-flat-white",
+          "n": {
+            "tr": "Ice Flat White",
+            "en": "Iced Flat White",
+            "ru": "Айс флэт уайт"
+          },
+          "d": {
+            "tr": "Çift shot espresso ve ince mikro köpük, bol buz ile.",
+            "en": "Double espresso with velvety microfoam, served over ice.",
+            "ru": "Двойной эспрессо с бархатной микропеной, со льдом."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            110,
+            150
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "iced-mocha",
+          "n": {
+            "tr": "Ice Mocha",
+            "en": "Iced Mocha",
+            "ru": "Айс мокко"
+          },
+          "d": {
+            "tr": "Espresso, çikolata sos ve süt, bol buz ile.",
+            "en": "Espresso, chocolate sauce and milk, served over ice.",
+            "ru": "Эспрессо, шоколадный соус и молоко, со льдом."
+          },
+          "p": [
+            200,
+            210
+          ],
+          "k": [
+            240,
+            310
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ]
+        },
+        {
+          "id": "iced-white-mocha",
+          "n": {
+            "tr": "Ice White Mocha",
+            "en": "Iced White Mocha",
+            "ru": "Айс белый мокко"
+          },
+          "d": {
+            "tr": "Espresso, beyaz çikolata sos ve süt, bol buz ile.",
+            "en": "Espresso, white chocolate sauce and milk, served over ice.",
+            "ru": "Эспрессо, соус из белого шоколада и молоко, со льдом."
+          },
+          "p": [
+            200,
+            210
+          ],
+          "k": [
+            280,
+            360
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ]
+        },
+        {
+          "id": "iced-filter-coffee",
+          "n": {
+            "tr": "Ice Filtre Kahve",
+            "en": "Iced Filter Coffee",
+            "ru": "Айс фильтр-кофе"
+          },
+          "d": {
+            "tr": "Günlük taze demlenen filtre kahve, bol buz ile.",
+            "en": "Freshly brewed filter coffee, served over ice.",
+            "ru": "Свежесваренный фильтр-кофе, со льдом."
+          },
+          "p": [
+            175,
+            185
+          ],
+          "k": [
+            5,
+            10
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "lattes",
+      "icon": "glass",
+      "tone": "latte",
+      "n": {
+        "tr": "Aromalı Latteler",
+        "en": "Flavoured Lattes",
+        "ru": "Ароматные латте"
+      },
+      "items": [
+        {
+          "id": "caramel-latte",
+          "n": {
+            "tr": "Caramel Latte",
+            "en": "Caramel Latte",
+            "ru": "Карамельный латте"
+          },
+          "d": {
+            "tr": "Espresso, süt ve karamel şurubu.",
+            "en": "Espresso, milk and caramel syrup.",
+            "ru": "Эспрессо, молоко и карамельный сироп."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            240,
+            300
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "vanilla-latte",
+          "n": {
+            "tr": "Vanilya Latte",
+            "en": "Vanilla Latte",
+            "ru": "Ванильный латте"
+          },
+          "d": {
+            "tr": "Espresso, süt ve vanilya şurubu.",
+            "en": "Espresso, milk and vanilla syrup.",
+            "ru": "Эспрессо, молоко и ванильный сироп."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            230,
+            290
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "toffee-latte",
+          "n": {
+            "tr": "Toffee Latte",
+            "en": "Toffee Latte",
+            "ru": "Латте тоффи"
+          },
+          "d": {
+            "tr": "Espresso, süt ve toffee şurubu.",
+            "en": "Espresso, milk and toffee syrup.",
+            "ru": "Эспрессо, молоко и сироп тоффи."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            250,
+            320
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "nutella-latte",
+          "n": {
+            "tr": "Nutella Latte",
+            "en": "Nutella Latte",
+            "ru": "Латте с Nutella"
+          },
+          "d": {
+            "tr": "Espresso, süt ve Nutella.",
+            "en": "Espresso, milk and Nutella.",
+            "ru": "Эспрессо, молоко и Nutella."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            320,
+            400
+          ],
+          "a": [
+            "milk",
+            "nuts",
+            "soy"
+          ]
+        },
+        {
+          "id": "roseberry-latte",
+          "n": {
+            "tr": "Roseberry Latte",
+            "en": "Roseberry Latte",
+            "ru": "Латте роузберри"
+          },
+          "d": {
+            "tr": "Espresso, süt ve gül & orman meyvesi aroması.",
+            "en": "Espresso, milk and rose & berry flavour.",
+            "ru": "Эспрессо, молоко и аромат розы и ягод."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            220,
+            280
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "salted-caramel-latte",
+          "n": {
+            "tr": "Salted Caramel Latte",
+            "en": "Salted Caramel Latte",
+            "ru": "Латте солёная карамель"
+          },
+          "d": {
+            "tr": "Espresso, süt ve tuzlu karamel sos.",
+            "en": "Espresso, milk and salted caramel sauce.",
+            "ru": "Эспрессо, молоко и соус солёная карамель."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            260,
+            330
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "chai-tea-latte",
+          "n": {
+            "tr": "Chai Tea Latte",
+            "en": "Chai Tea Latte",
+            "ru": "Чай латте"
+          },
+          "d": {
+            "tr": "Baharatlı chai çayı ve köpüklü süt.",
+            "en": "Spiced chai tea with frothed milk.",
+            "ru": "Пряный чай масала со вспененным молоком."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            220,
+            280
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "strawberry-latte",
+          "n": {
+            "tr": "Strawberry Latte",
+            "en": "Strawberry Latte",
+            "ru": "Клубничный латте"
+          },
+          "d": {
+            "tr": "Espresso, süt ve çilek aroması.",
+            "en": "Espresso, milk and strawberry flavour.",
+            "ru": "Эспрессо, молоко и клубничный вкус."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            230,
+            290
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "lotus-latte",
+          "n": {
+            "tr": "Lotus Latte",
+            "en": "Lotus Latte",
+            "ru": "Латте Lotus"
+          },
+          "d": {
+            "tr": "Espresso, süt ve Lotus Biscoff kreması & kırıntısı.",
+            "en": "Espresso, milk and Lotus Biscoff spread & crumbs.",
+            "ru": "Эспрессо, молоко и паста и крошка Lotus Biscoff."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            310,
+            390
+          ],
+          "a": [
+            "milk",
+            "gluten",
+            "soy"
+          ],
+          "pop": true
+        },
+        {
+          "id": "pumpkin-spice-latte",
+          "n": {
+            "tr": "Pumpkin Spice Latte",
+            "en": "Pumpkin Spice Latte",
+            "ru": "Тыквенный пряный латте"
+          },
+          "d": {
+            "tr": "Espresso, süt ve balkabağı baharatı.",
+            "en": "Espresso, milk and pumpkin spice.",
+            "ru": "Эспрессо, молоко и тыквенные специи."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            260,
+            330
+          ],
+          "a": [
+            "milk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matcha",
+      "icon": "leaf",
+      "tone": "matcha",
+      "n": {
+        "tr": "Matcha",
+        "en": "Matcha",
+        "ru": "Матча"
+      },
+      "items": [
+        {
+          "id": "matcha-latte",
+          "n": {
+            "tr": "Matcha Latte",
+            "en": "Matcha Latte",
+            "ru": "Матча латте"
+          },
+          "d": {
+            "tr": "Japon matcha çayı ve kadifemsi süt.",
+            "en": "Japanese matcha tea with silky milk.",
+            "ru": "Японский чай матча с нежным молоком."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            160,
+            210
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "caramel-matcha",
+          "n": {
+            "tr": "Caramel Matcha",
+            "en": "Caramel Matcha",
+            "ru": "Карамельная матча"
+          },
+          "d": {
+            "tr": "Matcha, süt ve karamel.",
+            "en": "Matcha, milk and caramel.",
+            "ru": "Матча, молоко и карамель."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            230,
+            290
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "strawberry-matcha",
+          "n": {
+            "tr": "Strawberry Matcha",
+            "en": "Strawberry Matcha",
+            "ru": "Клубничная матча"
+          },
+          "d": {
+            "tr": "Matcha, süt ve çilek püresi.",
+            "en": "Matcha, milk and strawberry purée.",
+            "ru": "Матча, молоко и клубничное пюре."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            220,
+            280
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "blueberry-matcha",
+          "n": {
+            "tr": "Blueberry Matcha",
+            "en": "Blueberry Matcha",
+            "ru": "Черничная матча"
+          },
+          "d": {
+            "tr": "Matcha, süt ve yaban mersini.",
+            "en": "Matcha, milk and blueberry.",
+            "ru": "Матча, молоко и черника."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            220,
+            280
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "mango-matcha",
+          "n": {
+            "tr": "Mango Matcha",
+            "en": "Mango Matcha",
+            "ru": "Манго матча"
+          },
+          "d": {
+            "tr": "Matcha, süt ve mango püresi.",
+            "en": "Matcha, milk and mango purée.",
+            "ru": "Матча, молоко и пюре манго."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            220,
+            280
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "nutella-matcha",
+          "n": {
+            "tr": "Nutella Matcha",
+            "en": "Nutella Matcha",
+            "ru": "Матча с Nutella"
+          },
+          "d": {
+            "tr": "Matcha, süt ve Nutella.",
+            "en": "Matcha, milk and Nutella.",
+            "ru": "Матча, молоко и Nutella."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            320,
+            400
+          ],
+          "a": [
+            "milk",
+            "nuts",
+            "soy"
+          ]
+        },
+        {
+          "id": "honey-lime-matcha",
+          "n": {
+            "tr": "Honey Lime Matcha",
+            "en": "Honey Lime Matcha",
+            "ru": "Матча мёд-лайм"
+          },
+          "d": {
+            "tr": "Matcha, bal ve taze lime.",
+            "en": "Matcha, honey and fresh lime.",
+            "ru": "Матча, мёд и свежий лайм."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            120,
+            160
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "signatures",
+      "icon": "star",
+      "tone": "sunset",
+      "n": {
+        "tr": "Coffee Signatures",
+        "en": "Coffee Signatures",
+        "ru": "Фирменный кофе"
+      },
+      "items": [
+        {
+          "id": "quu-sunshine",
+          "n": {
+            "tr": "QUU Sunshine",
+            "en": "QUU Sunshine",
+            "ru": "QUU Sunshine"
+          },
+          "d": {
+            "tr": "Portakal suyu üzerinde espresso, bol buz.",
+            "en": "Espresso over orange juice and ice.",
+            "ru": "Эспрессо на апельсиновом соке со льдом."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            90,
+            120
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "quu-sunset",
+          "n": {
+            "tr": "QUU Sunset",
+            "en": "QUU Sunset",
+            "ru": "QUU Sunset"
+          },
+          "d": {
+            "tr": "Meyve aromalı buzlu espresso, gün batımı renklerinde.",
+            "en": "Fruity iced espresso in sunset colours.",
+            "ru": "Фруктовый айс-эспрессо цвета заката."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            110,
+            140
+          ],
+          "a": []
+        },
+        {
+          "id": "quu-honey",
+          "n": {
+            "tr": "QUU Honey",
+            "en": "QUU Honey",
+            "ru": "QUU Honey"
+          },
+          "d": {
+            "tr": "Espresso, bal ve süt ile yumuşak içim.",
+            "en": "Smooth espresso with honey and milk.",
+            "ru": "Мягкий эспрессо с мёдом и молоком."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            150,
+            190
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "quu-sparkling",
+          "n": {
+            "tr": "QUU Sparkling",
+            "en": "QUU Sparkling",
+            "ru": "QUU Sparkling"
+          },
+          "d": {
+            "tr": "Espresso, soda ve limon — ferah ve köpüklü.",
+            "en": "Espresso, soda and lemon — bright and fizzy.",
+            "ru": "Эспрессо, содовая и лимон — свежо и игристо."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            60,
+            80
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "fresh",
+      "icon": "citrus",
+      "tone": "berry",
+      "n": {
+        "tr": "Signature Fresh",
+        "en": "Signature Fresh",
+        "ru": "Фирменные освежающие"
+      },
+      "items": [
+        {
+          "id": "quu-pink",
+          "n": {
+            "tr": "QUU Pink",
+            "en": "QUU Pink",
+            "ru": "QUU Pink"
+          },
+          "d": {
+            "tr": "Çilek ve ahududu ile pembe ferahlık.",
+            "en": "Pink refresher with strawberry and raspberry.",
+            "ru": "Розовый освежающий напиток с клубникой и малиной."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            140,
+            180
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "quu-fresh",
+          "n": {
+            "tr": "QUU Fresh",
+            "en": "QUU Fresh",
+            "ru": "QUU Fresh"
+          },
+          "d": {
+            "tr": "Nane ve lime ile serinletici içecek.",
+            "en": "Cooling drink with mint and lime.",
+            "ru": "Освежающий напиток с мятой и лаймом."
+          },
+          "p": [
+            200,
+            210
+          ],
+          "k": [
+            120,
+            160
+          ],
+          "a": []
+        },
+        {
+          "id": "quu-berry",
+          "n": {
+            "tr": "QUU Berry",
+            "en": "QUU Berry",
+            "ru": "QUU Berry"
+          },
+          "d": {
+            "tr": "Orman meyveleriyle yoğun meyve lezzeti.",
+            "en": "Intense mixed-berry refresher.",
+            "ru": "Насыщенный напиток с лесными ягодами."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            150,
+            190
+          ],
+          "a": []
+        },
+        {
+          "id": "quu-green",
+          "n": {
+            "tr": "QUU Green",
+            "en": "QUU Green",
+            "ru": "QUU Green"
+          },
+          "d": {
+            "tr": "Yeşil elma ve kivi ile ferah içim.",
+            "en": "Fresh green apple and kiwi.",
+            "ru": "Свежее зелёное яблоко и киви."
+          },
+          "p": [
+            200,
+            210
+          ],
+          "k": [
+            130,
+            170
+          ],
+          "a": []
+        },
+        {
+          "id": "quu-lime",
+          "n": {
+            "tr": "QUU Lime",
+            "en": "QUU Lime",
+            "ru": "QUU Lime"
+          },
+          "d": {
+            "tr": "Lime ve soda ile ekşi-tatlı ferahlık.",
+            "en": "Tangy lime and soda refresher.",
+            "ru": "Кисло-сладкий лайм с содовой."
+          },
+          "p": [
+            190,
+            200
+          ],
+          "k": [
+            110,
+            140
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "hot",
+      "icon": "mug",
+      "tone": "chocolate",
+      "n": {
+        "tr": "Sıcak İçecekler",
+        "en": "Hot Drinks",
+        "ru": "Горячие напитки"
+      },
+      "items": [
+        {
+          "id": "hot-chocolate",
+          "n": {
+            "tr": "Sıcak Çikolata",
+            "en": "Hot Chocolate",
+            "ru": "Горячий шоколад"
+          },
+          "d": {
+            "tr": "Kremamsı sütlü sıcak çikolata.",
+            "en": "Creamy hot chocolate made with milk.",
+            "ru": "Сливочный горячий шоколад на молоке."
+          },
+          "p": [
+            185,
+            195
+          ],
+          "k": [
+            330,
+            400
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ],
+          "pop": true
+        },
+        {
+          "id": "white-hot-chocolate",
+          "n": {
+            "tr": "Beyaz Sıcak Çikolata",
+            "en": "White Hot Chocolate",
+            "ru": "Белый горячий шоколад"
+          },
+          "d": {
+            "tr": "Beyaz çikolata ve sıcak süt.",
+            "en": "White chocolate with hot milk.",
+            "ru": "Белый шоколад с горячим молоком."
+          },
+          "p": [
+            185,
+            195
+          ],
+          "k": [
+            370,
+            450
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ]
+        },
+        {
+          "id": "salep",
+          "n": {
+            "tr": "Salep",
+            "en": "Salep",
+            "ru": "Салеп"
+          },
+          "d": {
+            "tr": "Tarçınlı geleneksel sıcak salep.",
+            "en": "Traditional warm orchid-root milk drink with cinnamon.",
+            "ru": "Традиционный горячий молочный напиток из корня орхидеи с корицей."
+          },
+          "p": [
+            185,
+            195
+          ],
+          "k": [
+            260,
+            320
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "turkish-coffee",
+          "n": {
+            "tr": "Türk Kahvesi",
+            "en": "Turkish Coffee",
+            "ru": "Турецкий кофе"
+          },
+          "d": {
+            "tr": "Közde pişmiş gibi köpüklü, geleneksel Türk kahvesi.",
+            "en": "Traditional foamy Turkish coffee.",
+            "ru": "Традиционный турецкий кофе с пенкой."
+          },
+          "p": [
+            110,
+            120
+          ],
+          "k": [
+            10,
+            15
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "deve-batmaz",
+          "n": {
+            "tr": "Deve Batmaz",
+            "en": "Deve Batmaz",
+            "ru": "Деве Батмаз"
+          },
+          "d": {
+            "tr": "Sütle pişirilen, yoğun köpüklü Türk kahvesi.",
+            "en": "Extra-foamy Turkish coffee brewed with milk.",
+            "ru": "Турецкий кофе на молоке с очень густой пенкой."
+          },
+          "p": [
+            140,
+            150
+          ],
+          "k": [
+            90,
+            120
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "mihrimah-sultan",
+          "n": {
+            "tr": "Mihrimah Sultan",
+            "en": "Mihrimah Sultan",
+            "ru": "Михримах Султан"
+          },
+          "d": {
+            "tr": "Kakao ve baharatlarla zenginleştirilmiş sütlü Osmanlı kahvesi.",
+            "en": "Ottoman-style milk coffee enriched with cocoa and spices.",
+            "ru": "Османский кофе на молоке с какао и пряностями."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            140,
+            180
+          ],
+          "a": [
+            "milk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tea",
+      "icon": "tea",
+      "tone": "turkishtea",
+      "n": {
+        "tr": "Çay & Bitki Çayları",
+        "en": "Tea & Herbal Teas",
+        "ru": "Чай и травяные чаи"
+      },
+      "items": [
+        {
+          "id": "turkish-tea",
+          "n": {
+            "tr": "Çay",
+            "en": "Turkish Tea",
+            "ru": "Турецкий чай"
+          },
+          "d": {
+            "tr": "Taze demlenmiş Türk çayı.",
+            "en": "Freshly brewed Turkish black tea.",
+            "ru": "Свежезаваренный турецкий чёрный чай."
+          },
+          "p": [
+            90,
+            100
+          ],
+          "k": [
+            2,
+            3
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "linden-tea",
+          "n": {
+            "tr": "Ihlamur",
+            "en": "Linden Tea",
+            "ru": "Липовый чай"
+          },
+          "d": {
+            "tr": "Rahatlatıcı ıhlamur çiçeği.",
+            "en": "Soothing linden blossom infusion.",
+            "ru": "Успокаивающий настой липового цвета."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            5,
+            8
+          ],
+          "a": []
+        },
+        {
+          "id": "sage-tea",
+          "n": {
+            "tr": "Adaçayı",
+            "en": "Sage Tea",
+            "ru": "Шалфейный чай"
+          },
+          "d": {
+            "tr": "Ege adaçayı demlemesi.",
+            "en": "Aegean sage infusion.",
+            "ru": "Настой эгейского шалфея."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            5,
+            8
+          ],
+          "a": []
+        },
+        {
+          "id": "chamomile-tea",
+          "n": {
+            "tr": "Papatya",
+            "en": "Chamomile Tea",
+            "ru": "Ромашковый чай"
+          },
+          "d": {
+            "tr": "Sakinleştirici papatya çayı.",
+            "en": "Calming chamomile infusion.",
+            "ru": "Успокаивающий ромашковый чай."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            5,
+            8
+          ],
+          "a": []
+        },
+        {
+          "id": "winter-tea",
+          "n": {
+            "tr": "Kış Çayı",
+            "en": "Winter Tea",
+            "ru": "Зимний чай"
+          },
+          "d": {
+            "tr": "Meyve ve baharatlarla ısıtan kış çayı.",
+            "en": "Warming winter blend with fruit and spices.",
+            "ru": "Согревающий чай с фруктами и пряностями."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            40,
+            55
+          ],
+          "a": []
+        },
+        {
+          "id": "mint-lemon-tea",
+          "n": {
+            "tr": "Nane Limon",
+            "en": "Mint & Lemon Tea",
+            "ru": "Чай мята-лимон"
+          },
+          "d": {
+            "tr": "Taze nane ve limon.",
+            "en": "Fresh mint and lemon.",
+            "ru": "Свежая мята и лимон."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            10,
+            15
+          ],
+          "a": []
+        },
+        {
+          "id": "rosehip-tea",
+          "n": {
+            "tr": "Kuşburnu",
+            "en": "Rosehip Tea",
+            "ru": "Чай из шиповника"
+          },
+          "d": {
+            "tr": "C vitamini deposu kuşburnu çayı.",
+            "en": "Vitamin C–rich rosehip tea.",
+            "ru": "Чай из шиповника, богатый витамином C."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            10,
+            15
+          ],
+          "a": []
+        },
+        {
+          "id": "green-tea",
+          "n": {
+            "tr": "Yeşil Çay",
+            "en": "Green Tea",
+            "ru": "Зелёный чай"
+          },
+          "d": {
+            "tr": "Hafif ve ferah yeşil çay.",
+            "en": "Light and refreshing green tea.",
+            "ru": "Лёгкий освежающий зелёный чай."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            2,
+            3
+          ],
+          "a": []
+        },
+        {
+          "id": "apple-cinnamon-tea",
+          "n": {
+            "tr": "Elma Tarçın",
+            "en": "Apple Cinnamon Tea",
+            "ru": "Яблочно-коричный чай"
+          },
+          "d": {
+            "tr": "Elma ve tarçın ile sıcacık.",
+            "en": "Cosy apple and cinnamon blend.",
+            "ru": "Уютный напиток из яблока и корицы."
+          },
+          "p": [
+            150,
+            160
+          ],
+          "k": [
+            30,
+            40
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "lemonade",
+      "icon": "glass",
+      "tone": "lemon",
+      "n": {
+        "tr": "Limonata & Frozen",
+        "en": "Lemonade & Frozen",
+        "ru": "Лимонад и фрозен"
+      },
+      "items": [
+        {
+          "id": "strawberry-lemonade",
+          "n": {
+            "tr": "Çilekli Limonata",
+            "en": "Strawberry Lemonade",
+            "ru": "Клубничный лимонад"
+          },
+          "d": {
+            "tr": "Ev yapımı limonata ve çilek.",
+            "en": "Homemade lemonade with strawberry.",
+            "ru": "Домашний лимонад с клубникой."
+          },
+          "p": [
+            180,
+            190
+          ],
+          "k": [
+            150,
+            190
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "mint-lemonade",
+          "n": {
+            "tr": "Naneli Limonata",
+            "en": "Mint Lemonade",
+            "ru": "Мятный лимонад"
+          },
+          "d": {
+            "tr": "Ev yapımı limonata ve taze nane.",
+            "en": "Homemade lemonade with fresh mint.",
+            "ru": "Домашний лимонад со свежей мятой."
+          },
+          "p": [
+            180,
+            190
+          ],
+          "k": [
+            140,
+            180
+          ],
+          "a": []
+        },
+        {
+          "id": "green-apple-lemonade",
+          "n": {
+            "tr": "Yeşil Elmalı Limonata",
+            "en": "Green Apple Lemonade",
+            "ru": "Лимонад с зелёным яблоком"
+          },
+          "d": {
+            "tr": "Ev yapımı limonata ve yeşil elma.",
+            "en": "Homemade lemonade with green apple.",
+            "ru": "Домашний лимонад с зелёным яблоком."
+          },
+          "p": [
+            180,
+            190
+          ],
+          "k": [
+            150,
+            190
+          ],
+          "a": []
+        },
+        {
+          "id": "watermelon-frozen",
+          "n": {
+            "tr": "Karpuz Frozen",
+            "en": "Watermelon Frozen",
+            "ru": "Арбузный фрозен"
+          },
+          "d": {
+            "tr": "Buzla çekilmiş karpuz.",
+            "en": "Watermelon blended with ice.",
+            "ru": "Арбуз, взбитый со льдом."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            170,
+            220
+          ],
+          "a": []
+        },
+        {
+          "id": "banana-frozen",
+          "n": {
+            "tr": "Muz Frozen",
+            "en": "Banana Frozen",
+            "ru": "Банановый фрозен"
+          },
+          "d": {
+            "tr": "Buzla çekilmiş muz.",
+            "en": "Banana blended with ice.",
+            "ru": "Банан, взбитый со льдом."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            200,
+            250
+          ],
+          "a": []
+        },
+        {
+          "id": "strawberry-frozen",
+          "n": {
+            "tr": "Çilek Frozen",
+            "en": "Strawberry Frozen",
+            "ru": "Клубничный фрозен"
+          },
+          "d": {
+            "tr": "Buzla çekilmiş çilek.",
+            "en": "Strawberry blended with ice.",
+            "ru": "Клубника, взбитая со льдом."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            180,
+            230
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "mango-frozen",
+          "n": {
+            "tr": "Mango Frozen",
+            "en": "Mango Frozen",
+            "ru": "Манго фрозен"
+          },
+          "d": {
+            "tr": "Buzla çekilmiş mango.",
+            "en": "Mango blended with ice.",
+            "ru": "Манго, взбитое со льдом."
+          },
+          "p": [
+            190,
+            210
+          ],
+          "k": [
+            190,
+            240
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "milkshake",
+      "icon": "shake",
+      "tone": "strawberry",
+      "n": {
+        "tr": "Milkshake",
+        "en": "Milkshakes",
+        "ru": "Милкшейки"
+      },
+      "items": [
+        {
+          "id": "strawberry-milkshake",
+          "n": {
+            "tr": "Çilekli Milkshake",
+            "en": "Strawberry Milkshake",
+            "ru": "Клубничный милкшейк"
+          },
+          "d": {
+            "tr": "Dondurma, süt ve çilek.",
+            "en": "Ice cream, milk and strawberry.",
+            "ru": "Мороженое, молоко и клубника."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            380,
+            480
+          ],
+          "a": [
+            "milk"
+          ],
+          "pop": true
+        },
+        {
+          "id": "vanilla-milkshake",
+          "n": {
+            "tr": "Vanilyalı Milkshake",
+            "en": "Vanilla Milkshake",
+            "ru": "Ванильный милкшейк"
+          },
+          "d": {
+            "tr": "Dondurma, süt ve vanilya.",
+            "en": "Ice cream, milk and vanilla.",
+            "ru": "Мороженое, молоко и ваниль."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            370,
+            470
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "banana-milkshake",
+          "n": {
+            "tr": "Muzlu Milkshake",
+            "en": "Banana Milkshake",
+            "ru": "Банановый милкшейк"
+          },
+          "d": {
+            "tr": "Dondurma, süt ve muz.",
+            "en": "Ice cream, milk and banana.",
+            "ru": "Мороженое, молоко и банан."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            390,
+            490
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "chocolate-milkshake",
+          "n": {
+            "tr": "Çikolatalı Milkshake",
+            "en": "Chocolate Milkshake",
+            "ru": "Шоколадный милкшейк"
+          },
+          "d": {
+            "tr": "Dondurma, süt ve çikolata.",
+            "en": "Ice cream, milk and chocolate.",
+            "ru": "Мороженое, молоко и шоколад."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            430,
+            540
+          ],
+          "a": [
+            "milk",
+            "soy"
+          ]
+        },
+        {
+          "id": "caramel-milkshake",
+          "n": {
+            "tr": "Karamelli Milkshake",
+            "en": "Caramel Milkshake",
+            "ru": "Карамельный милкшейк"
+          },
+          "d": {
+            "tr": "Dondurma, süt ve karamel.",
+            "en": "Ice cream, milk and caramel.",
+            "ru": "Мороженое, молоко и карамель."
+          },
+          "p": [
+            200,
+            220
+          ],
+          "k": [
+            420,
+            530
+          ],
+          "a": [
+            "milk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bubble",
+      "icon": "bubble",
+      "tone": "taro",
+      "n": {
+        "tr": "Bubble Tea",
+        "en": "Bubble Tea",
+        "ru": "Бабл-ти"
+      },
+      "items": [
+        {
+          "id": "strawberry-bubble-tea",
+          "n": {
+            "tr": "Çilekli Bubble Tea",
+            "en": "Strawberry Bubble Tea",
+            "ru": "Клубничный бабл-ти"
+          },
+          "d": {
+            "tr": "Çilekli çay ve patlayan boba topları.",
+            "en": "Strawberry tea with popping boba pearls.",
+            "ru": "Клубничный чай с лопающимися шариками бобы."
+          },
+          "p": [
+            220,
+            240
+          ],
+          "k": [
+            280,
+            350
+          ],
+          "a": [],
+          "pop": true
+        },
+        {
+          "id": "caramel-bubble-tea",
+          "n": {
+            "tr": "Karamelli Bubble Tea",
+            "en": "Caramel Bubble Tea",
+            "ru": "Карамельный бабл-ти"
+          },
+          "d": {
+            "tr": "Karamelli sütlü çay ve boba topları.",
+            "en": "Caramel milk tea with boba pearls.",
+            "ru": "Карамельный молочный чай с шариками бобы."
+          },
+          "p": [
+            220,
+            240
+          ],
+          "k": [
+            330,
+            410
+          ],
+          "a": [
+            "milk"
+          ]
+        },
+        {
+          "id": "blueberry-bubble-tea",
+          "n": {
+            "tr": "Yaban Mersinli Bubble Tea",
+            "en": "Blueberry Bubble Tea",
+            "ru": "Черничный бабл-ти"
+          },
+          "d": {
+            "tr": "Yaban mersinli çay ve patlayan boba topları.",
+            "en": "Blueberry tea with popping boba pearls.",
+            "ru": "Черничный чай с лопающимися шариками бобы."
+          },
+          "p": [
+            220,
+            240
+          ],
+          "k": [
+            280,
+            350
+          ],
+          "a": []
+        }
+      ]
+    },
+    {
+      "id": "waffle",
+      "icon": "waffle",
+      "tone": "waffle",
+      "n": {
+        "tr": "QUU Waffle",
+        "en": "QUU Waffle",
+        "ru": "QUU Вафли"
+      },
+      "sub": {
+        "tr": "Her lokmada mutluluk!",
+        "en": "Happiness in every bite!",
+        "ru": "Счастье в каждом кусочке!"
+      },
+      "items": [
+        {
+          "id": "quu-classic",
+          "n": {
+            "tr": "QUU Classic",
+            "en": "QUU Classic",
+            "ru": "QUU Classic"
+          },
+          "d": {
+            "tr": "Taze waffle, 2 meyve seçimi (muz, çilek, kivi), sütlü çikolata, pirinç patlağı, badem veya fındık kırığı.",
+            "en": "Fresh waffle, choice of 2 fruits (banana, strawberry, kiwi), milk chocolate, puffed rice, crushed almonds or hazelnuts.",
+            "ru": "Свежая вафля, 2 фрукта на выбор (банан, клубника, киви), молочный шоколад, воздушный рис, дроблёный миндаль или фундук."
+          },
+          "p": [
+            199
+          ],
+          "k": [
+            650
+          ],
+          "a": [
+            "gluten",
+            "milk",
+            "egg",
+            "nuts",
+            "soy"
+          ],
+          "pop": true
+        },
+        {
+          "id": "quu-caramel",
+          "n": {
+            "tr": "QUU Caramel",
+            "en": "QUU Caramel",
+            "ru": "QUU Caramel"
+          },
+          "d": {
+            "tr": "Karamel sos & Lotus Biscoff + taze waffle, 2 meyve seçimi (muz, çilek, kivi), sütlü çikolata, pirinç patlağı, badem veya fındık kırığı.",
+            "en": "Caramel sauce & Lotus Biscoff + fresh waffle, choice of 2 fruits (banana, strawberry, kiwi), milk chocolate, puffed rice, crushed almonds or hazelnuts.",
+            "ru": "Карамельный соус и Lotus Biscoff + свежая вафля, 2 фрукта на выбор (банан, клубника, киви), молочный шоколад, воздушный рис, дроблёный миндаль или фундук."
+          },
+          "p": [
+            250
+          ],
+          "k": [
+            780
+          ],
+          "a": [
+            "gluten",
+            "milk",
+            "egg",
+            "nuts",
+            "soy"
+          ]
+        },
+        {
+          "id": "quu-black",
+          "n": {
+            "tr": "QUU Black",
+            "en": "QUU Black",
+            "ru": "QUU Black"
+          },
+          "d": {
+            "tr": "Bitter çikolata, Oreo tozu & Oreo + taze waffle, 2 meyve seçimi (muz, çilek, kivi), sütlü çikolata, pirinç patlağı, badem veya fındık kırığı.",
+            "en": "Dark chocolate, Oreo crumbs & Oreo + fresh waffle, choice of 2 fruits (banana, strawberry, kiwi), milk chocolate, puffed rice, crushed almonds or hazelnuts.",
+            "ru": "Горький шоколад, крошка Oreo и Oreo + свежая вафля, 2 фрукта на выбор (банан, клубника, киви), молочный шоколад, воздушный рис, дроблёный миндаль или фундук."
+          },
+          "p": [
+            250
+          ],
+          "k": [
+            800
+          ],
+          "a": [
+            "gluten",
+            "milk",
+            "egg",
+            "nuts",
+            "soy"
+          ],
+          "pop": true
+        },
+        {
+          "id": "quu-white",
+          "n": {
+            "tr": "QUU White",
+            "en": "QUU White",
+            "ru": "QUU White"
+          },
+          "d": {
+            "tr": "Beyaz çikolata & Antep fıstığı sos + taze waffle, 2 meyve seçimi (muz, çilek, kivi), sütlü çikolata, pirinç patlağı, badem veya fındık kırığı.",
+            "en": "White chocolate & pistachio sauce + fresh waffle, choice of 2 fruits (banana, strawberry, kiwi), milk chocolate, puffed rice, crushed almonds or hazelnuts.",
+            "ru": "Белый шоколад и фисташковый соус + свежая вафля, 2 фрукта на выбор (банан, клубника, киви), молочный шоколад, воздушный рис, дроблёный миндаль или фундук."
+          },
+          "p": [
+            250
+          ],
+          "k": [
+            790
+          ],
+          "a": [
+            "gluten",
+            "milk",
+            "egg",
+            "nuts",
+            "soy"
+          ]
+        },
+        {
+          "id": "quu-dream",
+          "n": {
+            "tr": "QUU Dream",
+            "en": "QUU Dream",
+            "ru": "QUU Dream"
+          },
+          "d": {
+            "tr": "Patlayan şeker & frambuaz sos + taze waffle, 2 meyve seçimi (muz, çilek, kivi), sütlü çikolata, pirinç patlağı, badem veya fındık kırığı.",
+            "en": "Popping candy & raspberry sauce + fresh waffle, choice of 2 fruits (banana, strawberry, kiwi), milk chocolate, puffed rice, crushed almonds or hazelnuts.",
+            "ru": "Взрывная карамель и малиновый соус + свежая вафля, 2 фрукта на выбор (банан, клубника, киви), молочный шоколад, воздушный рис, дроблёный миндаль или фундук."
+          },
+          "p": [
+            250
+          ],
+          "k": [
+            760
+          ],
+          "a": [
+            "gluten",
+            "milk",
+            "egg",
+            "nuts",
+            "soy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "icon": "plus",
+      "tone": "crema",
+      "n": {
+        "tr": "Ekstralar",
+        "en": "Extras",
+        "ru": "Дополнительно"
+      },
+      "items": [
+        {
+          "id": "extra-espresso-shot",
+          "n": {
+            "tr": "Ekstra Espresso Shot",
+            "en": "Extra Espresso Shot",
+            "ru": "Дополнительный шот эспрессо"
+          },
+          "d": {
+            "tr": "İçeceğinize bir shot daha.",
+            "en": "One more shot for your drink.",
+            "ru": "Ещё один шот в ваш напиток."
+          },
+          "p": [
+            50
+          ],
+          "k": [
+            5
+          ],
+          "a": []
+        },
+        {
+          "id": "extra-syrup",
+          "n": {
+            "tr": "Ekstra Şurup",
+            "en": "Extra Syrup",
+            "ru": "Дополнительный сироп"
+          },
+          "d": {
+            "tr": "Karamel, vanilya, fındık ve daha fazlası.",
+            "en": "Caramel, vanilla, hazelnut and more.",
+            "ru": "Карамель, ваниль, фундук и другие."
+          },
+          "p": [
+            50
+          ],
+          "k": [
+            80
+          ],
+          "a": []
+        },
+        {
+          "id": "extra-plant-based-milk",
+          "n": {
+            "tr": "Ekstra Bitkisel Süt",
+            "en": "Extra Plant-based Milk",
+            "ru": "Растительное молоко"
+          },
+          "d": {
+            "tr": "Laktozsuz alternatif: yulaf, badem veya soya sütü.",
+            "en": "Lactose-free option: oat, almond or soy milk.",
+            "ru": "Без лактозы: овсяное, миндальное или соевое молоко."
+          },
+          "p": [
+            50
+          ],
+          "k": [
+            60
+          ],
+          "a": [
+            "nuts",
+            "soy",
+            "gluten"
+          ]
+        }
+      ]
+    }
+  ]
+}

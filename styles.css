@@ -555,3 +555,18 @@ body.sheet-dragging .sheet, body.sheet-dragging .scrim, body.sheet-dragging #app
   .action-l { font-size: 10px; }
   .hero-title { font-size: 28px; }
 }
+
+/* ---------- Ürün fotoğrafları & stok durumu (admin panelinden yönetilir) ---------- */
+.ci-thumb { flex: none; width: 72px; height: 72px; border-radius: 16px; overflow: hidden; background: var(--tc-bg); box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .06); }
+.ci-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-item.has-img { padding-left: 14px; }
+.card-item.has-img::before { display: none; }
+.card-item.sold .ci-main, .card-item.sold .ci-prices, .card-item.sold .ci-thumb { opacity: .5; }
+.card-item.sold .ci-thumb img { filter: grayscale(1); }
+.badge-sold { background: #E9ECEF; color: #5B6770; padding-left: 8px; }
+.sh-photo { height: 260px; padding: 0; overflow: hidden; background: var(--tone); }
+.sh-photo img { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+.sh-photo::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0, 0, 0, .38), rgba(0, 0, 0, 0) 38%); }
+.sh-photo + .eyebrow { margin-top: 18px; }
+.load-error { position: fixed; inset: 0; z-index: 99; display: grid; place-content: center; gap: 6px; padding: 24px; text-align: center; background: #0A3A5F; color: #fff; font: 600 17px/1.5 system-ui, sans-serif; }
+.load-error small { opacity: .75; font-weight: 500; }

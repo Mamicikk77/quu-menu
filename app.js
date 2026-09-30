@@ -1,6 +1,7 @@
 /* QUU COFFEE — QR Menü uygulaması */
-(() => {
+(async () => {
   "use strict";
+  const t = (tr, en, ru) => ({ tr, en, ru });
 
   /* ---------- Arayüz metinleri ---------- */
   const UI = {
@@ -27,6 +28,7 @@
     noAllergen:t("Bilinen alerjen içermez", "No known allergens", "Без известных аллергенов"),
     legend:    t("Alerjen Rehberi", "Allergen Guide", "Справочник аллергенов"),
     popular:   t("Favori", "Popular", "Хит"),
+    soldOut:   t("Tükendi", "Sold out", "Нет в наличии"),
     noResult:  t("Sonuç bulunamadı", "No results found", "Ничего не найдено"),
     disclaimer:t(
       "Kalori değerleri ortalama tahminlerdir ve tam yağlı süt ile hesaplanmıştır. Tüm ürünler aynı mutfakta hazırlandığından eser miktarda alerjen içerebilir. Alerjiniz varsa lütfen personelimize bildiriniz. Fiyatlarımıza KDV dahildir.",
@@ -105,11 +107,34 @@
   const EASE_OUT = "cubic-bezier(.23, 1, .32, 1)";
   const EASE_SHEET = "cubic-bezier(.32, .72, 0, 1)";
 
+  /* ---------- Menü verisi: menu.json (admin panelinden düzenlenir) ---------- */
+  let DATA;
+  try {
+    // Her açılışta taze veri: admin panelinden yapılan değişiklik önbelleğe takılmasın
+    const r = await fetch(`menu.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    DATA = await r.json();
+  } catch (err) {
+    console.error("menu.json yüklenemedi:", err);
+    document.body.insertAdjacentHTML("beforeend",
+      '<div class="load-error" role="alert">Menü yüklenemedi, lütfen sayfayı yenileyin.<br><small>Menu could not be loaded, please refresh.</small></div>');
+    return;
+  }
+  const CONFIG = DATA.config || {};
+  const ALLERGENS = DATA.allergens || {};
+  // Gizlenen ürün ve kategoriler müşteriye gösterilmez; boş kalan kategori de gizlenir
+  const MENU = (DATA.categories || [])
+    .filter((c) => !c.hidden)
+    .map((c) => ({ ...c, items: (c.items || []).filter((i) => !i.hidden) }))
+    .filter((c) => c.items.length);
+
   // Arama indeksi (Türkçe/Rusça harf farklarını yok sayar)
   const norm = (s) => s.toLocaleLowerCase("tr").replace(/ı/g, "i").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ё/g, "е");
   MENU.forEach((c) => c.items.forEach((it, i) => {
-    it.cat = c; it.uid = `${c.id}-${i}`;
-    it.idx = norm([it.n.tr, it.n.en, it.n.ru, it.d.tr, it.d.en, it.d.ru, c.n.tr, c.n.en, c.n.ru].join(" "));
+    it.cat = c; it.uid = it.id || `${c.id}-${i}`;
+    it.d = it.d || {}; it.k = it.k || [];
+    it.a = (it.a || []).filter((k) => ALLERGENS[k]);
+    it.idx = norm([it.n.tr, it.n.en, it.n.ru, it.d.tr, it.d.en, it.d.ru, c.n.tr, c.n.en, c.n.ru].filter(Boolean).join(" "));
   }));
   const byUid = Object.fromEntries(MENU.flatMap((c) => c.items.map((it) => [it.uid, it])));
 
@@ -169,11 +194,15 @@
     const prices = it.p.length === 2
       ? `<span class="pp"><small>S</small><b>${it.p[0]}</b></span><span class="pp"><small>G</small><b>${it.p[1]}</b></span>`
       : `<span class="pp one"><b>${fmt(it.p[0])}</b></span>`;
-    return `<button type="button" class="card-item" data-uid="${it.uid}">
+    const badges = (it.pop ? `<span class="badge">${ico("starF", "fill")}${esc(L(UI.popular))}</span>` : "") +
+      (it.soldOut ? `<span class="badge badge-sold">${esc(L(UI.soldOut))}</span>` : "");
+    const kcal = it.k.length ? `<span class="kcal">${ico("flame")}${esc(kcalTxt(it.k))}</span>` : "";
+    return `<button type="button" class="card-item${it.soldOut ? " sold" : ""}${it.img ? " has-img" : ""}" data-uid="${it.uid}">
+      ${it.img ? `<span class="ci-thumb"><img src="${esc(it.img)}" alt="" loading="lazy" decoding="async"></span>` : ""}
       <span class="ci-main">
-        <span class="ci-name">${esc(L(it.n))}${it.pop ? `<span class="badge">${ico("starF", "fill")}${esc(L(UI.popular))}</span>` : ""}</span>
+        <span class="ci-name">${esc(L(it.n))}${badges}</span>
         <span class="ci-desc">${esc(L(it.d))}</span>
-        <span class="ci-meta"><span class="kcal">${ico("flame")}${esc(kcalTxt(it.k))}</span>${it.a.length ? `<span class="algs">${it.a.map(alg).join("")}</span>` : ""}</span>
+        <span class="ci-meta">${kcal}${it.a.length ? `<span class="algs">${it.a.map(alg).join("")}</span>` : ""}</span>
       </span>
       <span class="ci-prices">${prices}</span>
     </button>`;
@@ -354,19 +383,21 @@
 
   const sheetHero = (icon) => `<div class="sh-hero"><span class="sh-mark">${ico(icon)}</span><span class="sh-ico">${ico(icon)}</span></div>`;
 
+  const photoHero = (src) => `<div class="sh-hero sh-photo"><img src="${esc(src)}" alt="" decoding="async"></div>`;
+
   function openItem(it) {
     const two = it.p.length === 2;
     const sizes = it.p.map((p, i) => `<div class="size">
         <span class="size-label">${esc(two ? L(i ? UI.grande : UI.small) : L(UI.portion))}</span>
         <span class="size-price">${p}<small> ${CONFIG.currency}</small></span>
-        <span class="kcal">${ico("flame")}~${it.k[i]} ${esc(L(UI.kcal))}</span>
+        ${it.k[i] ? `<span class="kcal">${ico("flame")}~${it.k[i]} ${esc(L(UI.kcal))}</span>` : ""}
       </div>`).join("");
     const algs = it.a.length
       ? it.a.map((k) => `<span class="alg-chip">${alg(k)}${esc(L(ALLERGENS[k].n))}</span>`).join("")
       : `<span class="alg-chip"><span class="alg" style="--c:var(--green)">${ico("shield")}</span>${esc(L(UI.noAllergen))}</span>`;
     openSheet(`
-      ${sheetHero(it.cat.icon)}
-      <span class="eyebrow">${esc(L(it.cat.n))}</span>
+      ${it.img ? photoHero(it.img) : sheetHero(it.cat.icon)}
+      <span class="eyebrow">${esc(L(it.cat.n))}${it.soldOut ? ` · ${esc(L(UI.soldOut))}` : ""}</span>
       <h2 class="sh-title" id="sheetTitle">${esc(L(it.n))}</h2>
       <p class="sh-desc">${esc(L(it.d))}</p>
       <div class="sizes">${sizes}</div>
